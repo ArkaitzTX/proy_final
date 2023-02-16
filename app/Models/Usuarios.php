@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Usuarios extends Model
+{
+    use HasFactory;
+    protected $table = "usuarios";
+    protected $primaryKey = "id";
+    protected $fillable = ['nombre', 'pass', 'img', 'admin'];
+    protected $hidden = ['id'];
+
+    public function proyectos()
+    {
+        return $this->hasMany(Socios::class, 'id_usuario', 'id');
+    }
+
+    public function comentarios()
+    {
+        return $this->hasMany(Socios::class, 'id_usu', 'id');
+    }
+}
