@@ -1,4 +1,4 @@
-<section class="py-4 py-xl-5">
+<article class="py-4 py-xl-5">
     <div class="container" style="padding-left: 12px;">
         <div class="bg-dark border rounded border-0 border-dark overflow-hidden">
             <div class="row g-0">
@@ -13,4 +13,4 @@
             </div>
         </div>
     </div>
-</section>
+</article>
