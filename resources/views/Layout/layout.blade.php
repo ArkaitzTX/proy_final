@@ -10,11 +10,11 @@
 </head>
 <body>
 
-@include('header');
+@include('Layout.header');
 
 @yield('content');
 
-@include('footer');
+@include('Layout.footer');
 
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
