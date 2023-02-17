@@ -1,0 +1,32 @@
+header {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0;
+}
+
+main section {
+  min-height: 90vh;
+}
+main #inicio {
+  background-image: url("../img/FondoConPortatil.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: #252525 0px 4px 12px;
+}
+main #inicio article {
+  margin-top: 15vh;
+}
+main #filtros article {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main #filtros article div {
+  background-color: #252525;
+  margin-top: 4vh;
+  width: 60vw;
+  height: 10vh;
+}/*# sourceMappingURL=inicio.css.map */
