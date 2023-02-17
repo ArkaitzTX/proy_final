@@ -1,0 +1,40 @@
+$negro: #252525;
+
+header{
+    position: sticky !important;
+    top: 0;
+}
+
+main{
+    section{
+        min-height: 90vh;
+    }
+
+    #inicio{
+        background-image: url("../img/FondoConPortatil.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    
+        box-shadow: $negro 0px 4px 12px;
+        article{
+            margin-top: 15vh;
+        }
+    }
+    #filtros{
+        article{
+            position: sticky;
+            top: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            div{
+                background-color: $negro;
+                margin-top: 4vh;
+                width: 60vw;
+                height: 10vh;
+            }
+        }
+    }
+}
