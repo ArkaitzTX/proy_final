@@ -1,4 +1,4 @@
-header {
+nav {
   position: -webkit-sticky !important;
   position: sticky !important;
   top: 0;
@@ -8,7 +8,7 @@ main section {
   min-height: 90vh;
 }
 main #inicio {
-  background-image: url("../images/FondoConPortatil.jpg");
+  background-image: url("../images/pagina/FondoConPortatil.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: #252525 0px 4px 12px;
@@ -20,7 +20,7 @@ main #proyectos #filtros {
   position: -webkit-sticky;
   position: sticky;
   z-index: 1;
-  top: 50px;
+  top: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,13 +39,4 @@ main #proyectos #grid {
 }
 main #proyectos #grid div {
   height: 40vh;
-}
-
-#subir {
-  position: absolute;
-  z-index: 1;
-  bottom: 50px;
-  right: 50px;
-  box-shadow: white 0px 4px 12px;
-  background-color: #252525;
 }/*# sourceMappingURL=inicio.css.map */
