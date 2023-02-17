@@ -39,4 +39,10 @@ main #proyectos #grid {
 }
 main #proyectos #grid div {
   height: 40vh;
+}
+
+@media (max-width: 900px) {
+  #grid {
+    grid-template-columns: 1fr !important;
+  }
 }/*# sourceMappingURL=inicio.css.map */
