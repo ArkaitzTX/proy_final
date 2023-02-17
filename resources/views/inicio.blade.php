@@ -18,8 +18,13 @@
     <section id="proyectos">
         {{-- Filtros --}}
         <article id="filtros">
-            <div class="rounded">
-                #
+            <div class="rounded d-flex align-items-center justify-content-around text-light">
+                    <select class="form-select w-25" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
             </div>
         </article>
         {{-- Proyectos --}}
