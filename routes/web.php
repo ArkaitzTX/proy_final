@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProyectoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Index
-Route::get('/', function () {
-    return view('inicio');
-});
+Route::get('/', [ProyectoController::class, 'inicio'])->name('inicio');
 //Añadir
 //Ver
 //Login
