@@ -23,6 +23,7 @@ main{
     #proyectos{
         #filtros{
             position: sticky;
+            z-index: 1;
             top: 50px;
 
             display: flex;
@@ -36,5 +37,25 @@ main{
                 height: 10vh;
             }
         }
+        #grid{
+            margin: 1vh 3vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px; 
+
+            div{
+                height: 40vh;
+            }
+        }    
     }
+}
+
+#subir{
+    position: absolute;
+    z-index: 1;
+    bottom: 50px;
+    right: 50px;
+
+    box-shadow: white 0px 4px 12px;
+    background-color: $negro;
 }
