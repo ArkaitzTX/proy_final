@@ -15,14 +15,13 @@
         </article>
     </section>
     {{-- Proyectos --}}
-    <section id="filtros">
+    <section id="proyectos">
         {{-- Filtros --}}
-        <article>
+        <article  id="filtros">
             <div class="rounded">
                 #
             </div>
         </article>
-        Proyectos
 
         @foreach ($proyectos as $proyecto)
 

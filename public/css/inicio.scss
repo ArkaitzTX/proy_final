@@ -11,7 +11,7 @@ main{
     }
 
     #inicio{
-        background-image: url("../img/FondoConPortatil.jpg");
+        background-image: url("../images/FondoConPortatil.jpg");
         background-size: cover;
         background-repeat: no-repeat;
     
@@ -20,8 +20,8 @@ main{
             margin-top: 15vh;
         }
     }
-    #filtros{
-        article{
+    #proyectos{
+        #filtros{
             position: sticky;
             top: 50px;
 
