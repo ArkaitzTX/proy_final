@@ -1,6 +1,6 @@
 $negro: #252525;
 
-header{
+nav{
     position: sticky !important;
     top: 0;
 }
@@ -11,7 +11,7 @@ main{
     }
 
     #inicio{
-        background-image: url("../images/FondoConPortatil.jpg");
+        background-image: url("../images/pagina/FondoConPortatil.jpg");
         background-size: cover;
         background-repeat: no-repeat;
     
@@ -24,7 +24,7 @@ main{
         #filtros{
             position: sticky;
             z-index: 1;
-            top: 50px;
+            top: 70px;
 
             display: flex;
             align-items: center;
@@ -48,14 +48,4 @@ main{
             }
         }    
     }
-}
-
-#subir{
-    position: absolute;
-    z-index: 1;
-    bottom: 50px;
-    right: 50px;
-
-    box-shadow: white 0px 4px 12px;
-    background-color: $negro;
 }
