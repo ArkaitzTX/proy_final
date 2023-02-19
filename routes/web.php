@@ -14,14 +14,23 @@ use App\Http\Controllers\ProyectoController;
 |
 */
 
-//Index
+//INDEX
 Route::get('/', [ProyectoController::class, 'inicio'])->name('inicio');
-//Nuevo
+Route::get('/#projects', [ProyectoController::class, 'inicio'])->name('proyectos');
+
+//NUEVO
 Route::get('/new', function () {
     return view('nuevo');
 })->name('nuevo');
 Route::post('/new', [ProyectoController::class, 'nuevo'])->name('nuevoCrear');
-//Ver
+
+//VER
 //Login
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+Route::get('/sign', function () {
+    return view('sign-up');
+})->name('sign');
 //Perfil
 //Admin

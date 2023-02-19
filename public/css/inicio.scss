@@ -33,14 +33,17 @@ main{
             justify-content: center;
 
             div{
-                background-color: $negro;
-                box-shadow: $blanco 0px 1px 1px;
+                // background-color: $negro;
+                // box-shadow: $blanco 0px 1px 1px;
                 margin-top: 4vh;
                 width: 60vw;
                 height: 10vh;
+                input{
+                    width: 40vw;
+                }
             }
         }
-        #grid{
+        #projects{
             margin: 1vh 3vw;
             display: grid;
             grid-template-columns: 1fr 1fr; 

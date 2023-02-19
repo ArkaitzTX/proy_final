@@ -26,22 +26,23 @@ main #proyectos #filtros {
   justify-content: center;
 }
 main #proyectos #filtros div {
-  background-color: #252525;
-  box-shadow: white 0px 1px 1px;
   margin-top: 4vh;
   width: 60vw;
   height: 10vh;
 }
-main #proyectos #grid {
+main #proyectos #filtros div input {
+  width: 40vw;
+}
+main #proyectos #projects {
   margin: 1vh 3vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
-main #proyectos #grid div {
+main #proyectos #projects div {
   height: 40vh;
 }
-main #proyectos #grid div p {
+main #proyectos #projects div p {
   line-height: 1.5; /* establece la altura de línea del texto */
   max-width: 100%; /* limita el ancho del párrafo al ancho disponible */
   overflow: hidden; /* esconde cualquier texto que sobrepase el límite */

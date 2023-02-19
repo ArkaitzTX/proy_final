@@ -5,9 +5,9 @@
                 </img></span><span style="color: var(--bs-white);">GlichCode</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link active" href="#" style="color: var(--bs-white);">Proyectos</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{ route('proyectos') }}" style="color: var(--bs-white);">Proyectos</a></li>
                 <li class="nav-item"><a class="nav-link active" href="{{ route('nuevo') }}" style="color: var(--bs-white);">Añadir proyecto</a></li>
-            </ul><button class="btn btn-primary" type="button">Iniciar sesion</button>
+            </ul><button onclick="location.href='{{ route('login') }}'" class="btn btn-primary" type="button">Iniciar sesion</button>
         </div>
     </div>
 </nav>
