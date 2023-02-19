@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Usuarios;
 
 class UsuarioController extends Controller
 {
@@ -31,10 +32,10 @@ class UsuarioController extends Controller
     public function sign(Request $request){
         
         // Validar
-        $request->validate([
-            'nombre' => 'required|between:3,50|unique',
-            'pass' => 'required|between:5,50',
-        ]);
+        // $request->validate([
+        //     'nombre' => 'required|between:3,50|nombre|unique:usuarios',
+        //     'pass1' => 'required|between:5,50',
+        // ]);
 
         // Comprobar contraseñas
         if ($request->pass1 !== $request->pass2) {
@@ -45,7 +46,6 @@ class UsuarioController extends Controller
         $nuevo = new Usuarios();
         $nuevo->nombre = $request->nombre;
         $nuevo->pass = $request->pass1;
-        $nuevo->usuario = $request->usuario;
         $nuevo->img = 'default.jpg';
         $nuevo->admin = 0;
         $nuevo->save();

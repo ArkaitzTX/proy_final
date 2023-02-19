@@ -21,12 +21,13 @@
         <div class="col-lg-6 mb-5 mb-lg-0">
           <div class="card">
             <div class="card-body py-5 px-md-5">
-              <form>
+            <form action="{{ route('sign-a')}}" method="POST">
+              @csrf
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
                   <div class="col-md-12 mb-4">
                     <div class="form-outline">
-                      <input type="text" id="form3Example1" class="form-control" />
+                      <input type="text" id="form3Example1" name="nombre" class="form-control" />
                       <label class="form-label" for="form3Example1">Nombre</label>
                     </div>
                   </div>
@@ -34,13 +35,13 @@
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4" class="form-control" />
+                  <input type="password" id="form3Example4" name="pass1" class="form-control" />
                   <label class="form-label" for="form3Example4">Contraseña</label>
                 </div>
 
                 <!-- Password repeat -->
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4" class="form-control" />
+                  <input type="password" id="form3Example4" name="pass2" class="form-control" />
                   <label class="form-label" for="form3Example4">Repite la contraseña</label>
                 </div>
 

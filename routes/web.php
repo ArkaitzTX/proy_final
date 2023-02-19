@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProyectoController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,9 @@ Route::get('/login', function () {
 Route::get('/sign', function () {
     return view('sign-up');
 })->name('sign');
+
+Route::post('/login', [UsuarioController::class, 'login'])->name('login-a');
+Route::post('/sign', [UsuarioController::class, 'sign'])->name('sign-a');
+
 //Perfil
 //Admin
