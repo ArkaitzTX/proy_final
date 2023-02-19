@@ -10,7 +10,7 @@ class Proyectos extends Model
     use HasFactory;
     protected $table = "proyectos";
     protected $primaryKey = "id";
-    protected $fillable = ['nombre', 'descripcion', 'img', 'tipo', 'id_usuario'];
+    protected $fillable = ['nombre', 'descripcion', 'como', 'archivo', 'tipo', 'img', 'vista_prev', 'id_usuario'];
     protected $hidden = ['id'];
 
     public function usuarios()

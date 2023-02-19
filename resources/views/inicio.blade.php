@@ -1,6 +1,7 @@
 @extends('Layout.layout')
 @section('content')
 
+{{-- CONEXIONES --}}
 <link rel="stylesheet" href="{{asset('css/inicio.css')}}">
 
 <main>
@@ -42,7 +43,7 @@
                                     <div class="my-3"><a class="btn btn-primary btn-lg me-2" role="button" href="#">Ver</a><a class="btn btn-light btn-lg" role="button" href="#">Descargar</a></div>
                                 </div>
                             </div>
-                            <div class="col-md-6" style="min-height: 250px;"><img class="w-100 h-100 fit-cover" src="{{url("/images/pagina/".$proyecto->img)}}"></div>
+                            <div class="col-md-6" style="min-height: 250px;"><img class="w-100 h-100 fit-cover" src="{{url("proyectos/images/" . $proyecto->img)}}"></div>
                         </div>
                     </div>
                 </div>

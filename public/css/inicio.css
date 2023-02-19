@@ -1,7 +1,8 @@
+@charset "UTF-8";
 nav {
-  position: -webkit-sticky !important;
   position: sticky !important;
   top: 0;
+  box-shadow: white 0px 3px 8px;
 }
 
 main section {
@@ -17,7 +18,6 @@ main #inicio article {
   margin-top: 15vh;
 }
 main #proyectos #filtros {
-  position: -webkit-sticky;
   position: sticky;
   z-index: 1;
   top: 70px;
@@ -27,6 +27,7 @@ main #proyectos #filtros {
 }
 main #proyectos #filtros div {
   background-color: #252525;
+  box-shadow: white 0px 1px 1px;
   margin-top: 4vh;
   width: 60vw;
   height: 10vh;
@@ -40,8 +41,16 @@ main #proyectos #grid {
 main #proyectos #grid div {
   height: 40vh;
 }
+main #proyectos #grid div p {
+  line-height: 1.5; /* establece la altura de línea del texto */
+  max-width: 100%; /* limita el ancho del párrafo al ancho disponible */
+  overflow: hidden; /* esconde cualquier texto que sobrepase el límite */
+  display: -webkit-box; /* establece el display de la caja para navegadores webkit */
+  -webkit-line-clamp: 6; /* establece el número máximo de líneas */
+  -webkit-box-orient: vertical; /* establece la orientación vertical de la caja */
+}
 
-@media (max-width: 900px) {
+@media (max-width: 1344px) {
   #grid {
     grid-template-columns: 1fr !important;
   }

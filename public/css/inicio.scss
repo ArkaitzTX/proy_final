@@ -1,8 +1,10 @@
 $negro: #252525;
+$blanco: white;
 
 nav{
     position: sticky !important;
     top: 0;
+    box-shadow: $blanco 0px 3px 8px;
 }
 
 main{
@@ -32,6 +34,7 @@ main{
 
             div{
                 background-color: $negro;
+                box-shadow: $blanco 0px 1px 1px;
                 margin-top: 4vh;
                 width: 60vw;
                 height: 10vh;
@@ -45,13 +48,21 @@ main{
 
             div{
                 height: 40vh;
+                p{
+                    line-height: 1.5; /* establece la altura de línea del texto */
+                    max-width: 100%; /* limita el ancho del párrafo al ancho disponible */
+                    overflow: hidden; /* esconde cualquier texto que sobrepase el límite */
+                    display: -webkit-box; /* establece el display de la caja para navegadores webkit */
+                    -webkit-line-clamp: 6; /* establece el número máximo de líneas */
+                    -webkit-box-orient: vertical; /* establece la orientación vertical de la caja */
+                }
             }
         }    
     }
 }
 
 // RESPONSIVE
-@media (max-width: 900px) {
+@media (max-width: 1344px) {
     #grid {
       grid-template-columns: 1fr !important; 
     }

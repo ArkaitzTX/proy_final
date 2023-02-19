@@ -16,7 +16,11 @@ use App\Http\Controllers\ProyectoController;
 
 //Index
 Route::get('/', [ProyectoController::class, 'inicio'])->name('inicio');
-//Añadir
+//Nuevo
+Route::get('/new', function () {
+    return view('nuevo');
+})->name('nuevo');
+Route::post('/new', [ProyectoController::class, 'nuevo'])->name('nuevoCrear');
 //Ver
 //Login
 //Perfil

@@ -17,8 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('nombre', 50);
             $table->string('descripcion', 500);
-            $table->string('img', 100);
+            $table->string('como', 500);
+            $table->string('archivo', 200);
             $table->integer('tipo');
+            $table->string('img', 100);
+            $table->integer('vista_prev');
             $table->unsignedBigInteger('id_usuarios');
             $table->foreign('id_usuarios')->references('id')->on('usuarios');   
             $table->timestamps();
