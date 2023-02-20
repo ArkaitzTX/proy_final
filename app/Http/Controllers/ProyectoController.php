@@ -52,7 +52,7 @@ class ProyectoController extends Controller
         $nuevo->tipo = $request->tipo;
         $nuevo->img = $nombreImg;
         $nuevo->vista_prev = $vPrev;
-        $nuevo->id_usuarios = 1;//!poner la session
+        $nuevo->id_usuarios = session()->get('usuario')->id;
         $nuevo->save();
 
         // ARCHIVOS

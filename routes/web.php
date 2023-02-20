@@ -19,14 +19,7 @@ use App\Http\Controllers\UsuarioController;
 Route::get('/', [ProyectoController::class, 'inicio'])->name('inicio');
 Route::get('/#projects', [ProyectoController::class, 'inicio'])->name('proyectos');
 
-//NUEVO
-Route::get('/new', function () {
-    return view('nuevo');
-})->name('nuevo');
-Route::post('/new', [ProyectoController::class, 'nuevo'])->name('nuevoCrear');
-
-//VER
-//Login
+//LOGIN/GIGN-UP
 Route::get('/login', function () {
     return view('login');
 })->name('login');
@@ -35,7 +28,18 @@ Route::get('/sign', function () {
 })->name('sign');
 
 Route::post('/login', [UsuarioController::class, 'login'])->name('login-a');
+Route::get('/logout', [UsuarioController::class, 'logout'])->name('logout');
 Route::post('/sign', [UsuarioController::class, 'sign'])->name('sign-a');
 
-//Perfil
-//Admin
+
+Route::group(['middleware' => 'usuarios'], function(){
+	//NUEVO
+    Route::get('/new', function () {
+        return view('nuevo');
+    })->name('nuevo');
+    Route::post('/new', [ProyectoController::class, 'nuevo'])->name('nuevoCrear');
+    //!VER
+});
+
+//!PERFIL
+//!ADMIN
