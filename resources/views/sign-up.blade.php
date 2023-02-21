@@ -33,11 +33,15 @@
                                     </div>
                                 </div>
 
+                                @error('nombre')<p class="text-danger text-center">{{ $message }}</p>@enderror
+
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
                                     <input type="password" id="form3Example4" name="pass1" class="form-control" />
                                     <label class="form-label" for="form3Example4">Contraseña</label>
                                 </div>
+
+                                @error('pass1')<p class="text-danger text-center">{{ $message }}</p>@enderror
 
                                 <!-- Password repeat -->
                                 <div class="form-outline mb-4">
@@ -45,18 +49,7 @@
                                     <label class="form-label" for="form3Example4">Repite la contraseña</label>
                                 </div>
 
-                                {{-- ERROR --}}
-                                <p class="text-center text-danger">
-                                    @isset($mensaje)
-                                    {{ $mensaje }}
-                                    @endisset
-                                </p>
-                                @foreach ($errors->all() as $error)
-                                    <p class="text-danger text-center">{{ $error }}</p>
-                                @endforeach 
-                                {{-- @error('nombre')
-                                    <div class="ext-danger text-center">{{ $message }}</div>
-                                @enderror --}}
+                                @isset($mensaje)<p class="text-danger text-center">{{$mensaje}}</p>@endisset
 
                                 <!-- Submit button -->
                                 <button type="submit" class="btn btn-primary btn-block mb-4">

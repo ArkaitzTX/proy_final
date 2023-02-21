@@ -33,7 +33,7 @@
             </div>
         </article>
         {{-- Proyectos --}}
-        <article id="projects">
+        <article class="" id="projects">
             @foreach ($proyectos as $proyecto)
 
             <div class="py-4 py-xl-5">
@@ -59,6 +59,7 @@
             @endforeach
 
         </article>
+        <div style="height: 100px;"></div>
     </section>
 </main>
 

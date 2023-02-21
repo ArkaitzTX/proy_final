@@ -33,8 +33,8 @@ class UsuarioController extends Controller
         
         // Validar
         $request->validate([
-            'nombre' => 'required|between:3,50|unique:proyecto.usuarios,nombre',
-            'pass1' => 'required|between:5,50',
+            'nombre' => 'required|between:3,50|unique:usuarios,nombre',
+            'pass1' => 'required|between:6,50',
         ]);
 
         // Comprobar contraseñas
