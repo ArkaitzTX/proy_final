@@ -42,9 +42,11 @@ main #proyectos #filtros div {
   margin-top: 4vh;
   width: 60vw;
   height: 10vh;
+  padding: 1vw;
 }
 main #proyectos #filtros div input {
   width: 40vw;
+  margin-right: 2vw;
 }
 main #proyectos #projects {
   margin: 1vh 3vw;

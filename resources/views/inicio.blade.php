@@ -1,9 +1,10 @@
 @extends('Layout.layout')
 @section('content')
 
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> {{-- VUE  --}}
 {{-- CONEXIONES --}}
 <link rel="stylesheet" href="{{asset('css/inicio.css')}}">
-
+<script src="{{asset('js/inicio.js')}}"></script>
 <main>
 
     {{-- Inicio --}}
@@ -30,34 +31,17 @@
                     <option value="1">Mas Nuevos</option>
                     <option value="2">Mas Viejos</option>
                 </select>
+                <select class="form-select w-25" aria-label="Default select example">
+                    <option selected>Tipos</option>
+                    <option value="1">css</option>
+                    <option value="2">js</option>
+                    <option value="3">json</option>
+                </select>
             </div>
         </article>
-        {{-- Proyectos --}}
+
         <article id="projects">
-            @foreach ($proyectos as $proyecto)
-
-            <div class="py-4 py-xl-5">
-                <div class="container" style="padding-left: 12px;">
-                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden">
-                        <div class="row g-0">
-                            <div class="col-md-6 order-first order-md-last">
-                                <div class="text-white p-4 p-md-5">
-                                    <h2 class="fw-bold text-white mb-3">{{ $proyecto->nombre }}</h2>
-                                    <p class="mb-4">{{ $proyecto->descripcion }}</p>
-                                    <div class="my-3"><a class="btn btn-primary btn-lg me-2" role="button"
-                                            href="#">Ver</a><a class="btn btn-light btn-lg" role="button"
-                                            href="#">Descargar</a></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6" style="min-height: 250px;"><img class="w-100 h-100 fit-cover"
-                                    src="{{url("proyectos/images/" . $proyecto->img)}}"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            @endforeach
-
+            <filtros pro="{{ json_encode($proyectos) }}"></filtros>
         </article>
     </section>
 </main>
