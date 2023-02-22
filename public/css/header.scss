@@ -1,0 +1,19 @@
+$negro: #252525;
+$blanco: white;
+
+nav{
+    position: sticky !important;
+    top: 0;
+    box-shadow: $blanco 0px 3px 8px;
+    z-index: 10;
+    #perfil{
+        color: $blanco;
+        img{
+            max-width: 50px;
+            max-height: 50px;
+            &:hover{
+                opacity: 0.7;
+            }
+        }
+    }
+}

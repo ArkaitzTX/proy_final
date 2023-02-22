@@ -1,12 +1,14 @@
 @extends('Layout.layout')
 @section('content')
 
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> {{-- VUE  --}}
+{{-- VUE  --}}
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
 {{-- CONEXIONES --}}
 <link rel="stylesheet" href="{{asset('css/inicio.css')}}">
 <script src="{{asset('js/inicio.js')}}"></script>
-<main>
 
+
+<main>
     {{-- Inicio --}}
     <section id="inicio" class="py-4 py-xl-5">
         <article class="container bg-opacity-50 bg-white rounded">
