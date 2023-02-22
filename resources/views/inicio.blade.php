@@ -3,6 +3,11 @@
 
 {{-- VUE  --}}
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+{{-- AXIOX  --}}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+{{-- JSZIP --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 {{-- CONEXIONES --}}
 <link rel="stylesheet" href="{{asset('css/inicio.css')}}">
 <script src="{{asset('js/inicio.js')}}"></script>
@@ -26,5 +31,6 @@
         <filtros pro="{{ json_encode($proyectos) }}"></filtros>
     </section>
 </main>
+
 
 @endsection

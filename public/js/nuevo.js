@@ -137,7 +137,7 @@ window.onload = () => {
 
     // APLICAR
     selectTipo.addEventListener("change", function (event) {
-        const miTipo = tipos[event.target.value];
+        const miTipo = tipos[Number(event.target.value-1)];
 
         // ELIMINAR TODO
         principal.setValue("");
@@ -187,7 +187,6 @@ window.onload = () => {
             }
         });
 
-        console.log(error);
         if(!error) {
             document.querySelector('form').submit();
         }

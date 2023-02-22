@@ -38,7 +38,8 @@ Route::group(['middleware' => 'usuarios'], function(){
         return view('nuevo');
     })->name('nuevo');
     Route::post('/new', [ProyectoController::class, 'nuevo'])->name('nuevoCrear');
-    //!VER
+    //VER
+    Route::get('/view/{id}', [ProyectoController::class, 'ver'])->name('ver');
 });
 
 //!PERFIL

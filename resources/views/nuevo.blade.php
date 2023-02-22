@@ -36,8 +36,8 @@
             </section>
         </section>
         {{-- ENVIAR --}}
-        <input type="text" id="archivo1" name="archivo1" hidden>
-        <input type="text" id="archivo2" name="archivo2" hidden>
+        <textarea id="archivo1" name="archivo1" hidden></textarea>
+        <textarea id="archivo2" name="archivo2" hidden></textarea>
         <button type="submit" id="enviar">Enviar</button>
     </form>
 </main>

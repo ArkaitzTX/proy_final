@@ -29,7 +29,7 @@ window.onload = () => {
     </article>
 
     <article id="projects">
-        <div v-for="proy in filtrar" class="py-4 py-xl-5">
+        <div v-for="(proy, index) in filtrar" class="py-4 py-xl-5">
             <div class="container" style="padding-left: 12px;">
                 <div class="bg-dark border rounded border-0 border-dark overflow-hidden">
                     <div class="row g-0">
@@ -38,8 +38,8 @@ window.onload = () => {
                                 <h2 class="fw-bold text-white mb-3">{{ proy.nombre }}</h2>
                                 <p class="mb-4">{{ proy.descripcion }}</p>
                                 <div class="my-3">
-                                    <a class="btn btn-primary btn-lg me-2" role="button" href="#">Ver</a>
-                                    <a class="btn btn-light btn-lg" role="button" href="#">Descargar</a>
+                                    <a class="btn btn-primary btn-lg me-2" role="button" :href="'view/'+proy.id">Ver</a>
+                                    <button :id="proy.id" class="btn btn-light btn-lg" role="button" @click="descargar">Descargar</button>
                                 </div>
                             </div>
                         </div>
@@ -80,6 +80,103 @@ window.onload = () => {
                 });  
             }
         },
+        methods: {
+            // descargar(event){
+            //     const proyecto = this.misProyectos.data.find(objeto => objeto.id == event.target.id);
+
+            //     // ARCHIVOS
+            //     //1
+            //     let misTipos = ["css", "js", "json"];
+            //     let ruta1 = '/proyectos/' + misTipos[proyecto.tipo-1] + '/';
+            
+            //     axios.get(ruta1 + proyecto.archivo + '.' + misTipos[proyecto.tipo-1], {
+            //         responseType: 'blob'
+            //     })
+            //     .then(response => {
+            //         // Crea un objeto URL a partir del Blob para descargar el archivo
+            //         let blob = new Blob([response.data]);
+            //         let url = window.URL.createObjectURL(blob);
+            
+            //         // Crea un elemento <a> para descargar el archivo
+            //         let link = document.createElement('a');
+            //         link.href = url;
+            //         link.download = 'principal.' + misTipos[proyecto.tipo-1];
+            //         link.click();
+            
+            //         // Limpia el objeto URL creado
+            //         window.URL.revokeObjectURL(url);
+            //     });
+            //     //2
+            //     if (proyecto.vista_prev) {
+            //         let ruta2 = '/proyectos/html/';
+            //         axios.get(ruta2 + proyecto.archivo + '.html')
+            //         .then(response => {
+            //             //Crea el link de conexion
+            //             const LINK = [
+            //                 '<link rel="stylesheet" href="principal.'+misTipos[proyecto.tipo-1]+'">',
+            //                 '<script src="principal.'+misTipos[proyecto.tipo-1]+'"></script>'
+            //             ];
+            //             let contenido = LINK[proyecto.tipo-1] + '\n' + response.data;
+
+            //             // Crea un objeto URL a partir del Blob para descargar el archivo
+            //             let blob = new Blob([contenido]);
+            //             let url = window.URL.createObjectURL(blob);
+                
+            //             // Crea un elemento <a> para descargar el archivo
+            //             let link = document.createElement('a');
+            //             link.href = url;
+            //             link.download = 'secundario.html';
+            //             link.click();
+                
+            //             // Limpia el objeto URL creado
+            //             window.URL.revokeObjectURL(url);
+            //         });
+            //     }   
+            // }
+            descargar(event) {
+                const proyecto = this.misProyectos.data.find(objeto => objeto.id == event.target.id);
+              
+                // ARCHIVOS
+                let misTipos = ["css", "js", "json"];
+                let ruta1 = '/proyectos/' + misTipos[proyecto.tipo - 1] + '/';
+                let zip = new JSZip();
+              
+                //1
+                axios.get(ruta1 + proyecto.archivo + '.' + misTipos[proyecto.tipo - 1], {
+                    responseType: 'blob'
+                  })
+                  .then(response => {
+                    // Añadir archivo 1 al zip
+                    let extension = proyecto.extension ? '.' + proyecto.extension : '';
+                    let nombreArchivo = 'principal' + extension + '.' + misTipos[proyecto.tipo - 1];
+                    zip.file(nombreArchivo, response.data, {
+                      binary: true
+                    });
+                  });
+              
+                //2
+                if (proyecto.vista_prev) {
+                  let ruta2 = '/proyectos/html/';
+                  axios.get(ruta2 + proyecto.archivo + '.html')
+                    .then(response => {
+                      // Añadir archivo 2 al zip
+                      const LINK = [
+                        '<link rel="stylesheet" href="principal.' + misTipos[proyecto.tipo - 1] + '">',
+                        '<script src="principal.' + misTipos[proyecto.tipo - 1] + '"></script>'
+                      ];
+                      let contenido = LINK[proyecto.tipo - 1] + '\n' + response.data;
+                      zip.file('secundario.html', contenido);
+              
+                      // Descargar zip
+                      zip.generateAsync({
+                        type: "blob"
+                      }).then(function (blob) {
+                        saveAs(blob, "proyecto.zip");
+                      });
+                    });
+                }
+            }
+        }
     });
  
     filtros.mount('#proyectos');

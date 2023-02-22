@@ -63,9 +63,9 @@ class ProyectoController extends Controller
             // ARCHIVOS
                 //1
             $misTipos = array("css", "js", "json");
-            $ruta1 = public_path('proyectos/'. $misTipos[$request->tipo] . '/');
+            $ruta1 = public_path('proyectos/'. $misTipos[$request->tipo-1] . '/');
             $arch1 = $request->archivo1;
-            File::put($ruta1  . $nombreArch . '.' . $misTipos[$request->tipo], $arch1);
+            File::put($ruta1  . $nombreArch . '.' . $misTipos[$request->tipo-1], $arch1);
                 //2
             if ($vPrev) {
                 $ruta2 = public_path('proyectos/html/');
@@ -77,4 +77,9 @@ class ProyectoController extends Controller
         return redirect()->route('inicio');
     }
     //Ver uno
+    public function ver($id){
+        $proyecto = Proyectos::findOrFail($id);
+        return view('ver', compact('proyecto'));
+    }
+
 }

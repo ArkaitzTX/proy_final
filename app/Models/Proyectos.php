@@ -11,7 +11,7 @@ class Proyectos extends Model
     protected $table = "proyectos";
     protected $primaryKey = "id";
     protected $fillable = ['nombre', 'descripcion', 'como', 'archivo', 'tipo', 'img', 'vista_prev', 'id_usuario'];
-    protected $hidden = ['id'];
+    // protected $hidden = ['id'];
 
     public function usuarios()
     {
