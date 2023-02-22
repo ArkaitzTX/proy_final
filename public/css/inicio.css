@@ -1,6 +1,7 @@
 @charset "UTF-8";
 main {
   background-color: hsl(0deg, 0%, 96%);
+  margin-bottom: 7vh;
 }
 main section {
   min-height: 90vh;
@@ -15,7 +16,6 @@ main #inicio article {
   margin-top: 15vh;
 }
 main #proyectos #filtros {
-  position: -webkit-sticky;
   position: sticky;
   z-index: 1;
   top: 70px;

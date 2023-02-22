@@ -38,7 +38,7 @@ class ProyectoController extends Controller
 
         //! EN CASO DE QUE SEA JSON(BUG)
         $vPrev = 0;
-        if ($request->tipo != 2) {
+        if ($request->tipo != 3) {
             $vPrev = $request->has('vista_prev') ? 0 : 1;
         }
         
