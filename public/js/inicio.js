@@ -54,12 +54,32 @@ window.onload = () => {
         `,
         computed: {
             filtrar(){
-                return this.misProyectos.data;
+                return this.misProyectos.data
+                .filter(proyecto => {
+                    let tipoCondicion = true;
+                    let busquedaCondicion = true;
+            
+                    if (this.tipo !== '0') {
+                        tipoCondicion = proyecto.tipo == this.tipo;
+                    }
+            
+                    if (this.busqueda !== '') {
+                        busquedaCondicion =
+                            proyecto.nombre.toLowerCase().includes(this.busqueda.toLowerCase()) ||
+                            proyecto.descripcion.toLowerCase().includes(this.busqueda.toLowerCase());
+                    }
+            
+                    return tipoCondicion && busquedaCondicion;
+                })
+                .sort((proyecto1, proyecto2) => {
+                    if (this.fecha === '1') {
+                        return new Date(proyecto1.created_at) - new Date(proyecto2.created_at);
+                    } else {
+                        return new Date(proyecto2.created_at) - new Date(proyecto1.created_at);
+                    }
+                });  
             }
         },
-        created() {
-            
-        }
     });
  
     filtros.mount('#proyectos');

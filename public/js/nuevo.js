@@ -130,7 +130,7 @@ window.onload = () => {
     // CREAR SELECT
     tipos.forEach((tipo, index) => {
         const option = document.createElement('option');
-        option.value = index;
+        option.value = Number(index+1);
         option.textContent = tipo.nombre;
         selectTipo.appendChild(option);
     });
