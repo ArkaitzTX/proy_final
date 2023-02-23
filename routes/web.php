@@ -31,14 +31,18 @@ Route::post('/login', [UsuarioController::class, 'login'])->name('login-a');
 Route::get('/logout', [UsuarioController::class, 'logout'])->name('logout');
 Route::post('/sign', [UsuarioController::class, 'sign'])->name('sign-a');
 
-
 Route::group(['middleware' => 'usuarios'], function(){
+    //BOX COLLIDER 2D
+    Route::view('/perfil', 'perfil')->name('perfil');
 	//NUEVO
     Route::get('/new', function () {
         return view('nuevo');
     })->name('nuevo');
     Route::post('/new', [ProyectoController::class, 'nuevo'])->name('nuevoCrear');
     //!VER
+
+    Route::put('/actualizarPefil{id}', [UsuarioController::class, 'actualizar'])->name('actualizarPefil');
+
 });
 
 //!PERFIL
