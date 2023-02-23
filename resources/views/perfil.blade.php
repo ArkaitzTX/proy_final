@@ -7,10 +7,10 @@
     <div class="row">
         <div class="col">
             <div class="d-flex flex-column w-75 sticky-xl-top mb-4" style="top: 155px">
-                <img src="{{url("/images/fotosPerfil/".$usuario->img)}}"
-                    alt="{{$usuario->img}}" class="rounded-circle mx-auto" style="width: 125px;">
+                <img src="{{url("/images/usuarios/".$usuario->img)}}"
+                    alt="{{$usuario->img}}" class="rounded-circle mx-auto" style="width: 125px; height: 125px;">
 
-                <form method="POST" action="{{ route('actualizarPefil', $usuario->id) }}">
+                <form method="POST" action="{{ route('actualizarPefil', $usuario->id) }}"  enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
@@ -27,12 +27,14 @@
 
                     <div class="mb-4 d-grid gap-2">
                         <label for="" class="form-label">Foto de perfil</label>
-                        <input class="form-control" type="file" name="image">
+                        <input class="form-control" type="file" name="img">
                     </div>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary block mb-3">Actualizar información
                             personal</button>
-                        <a name="" id="" class="btn btn-outline-primary block" href="{{ route('admin') }}" role="button">Administracion</a>
+                        @if ($usuario->admin)
+                            <a class="btn btn-outline-primary block" href="{{ route('admin') }}" role="button">Administracion</a>    
+                        @endif
                     </div>
             </div>
 

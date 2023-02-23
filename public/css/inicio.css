@@ -16,7 +16,6 @@ main #inicio article {
   margin-top: 15vh;
 }
 main #proyectos #filtros {
-  position: -webkit-sticky;
   position: sticky;
   z-index: 1;
   top: 70px;

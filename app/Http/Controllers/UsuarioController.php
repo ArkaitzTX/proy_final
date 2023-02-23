@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 use App\Models\Usuarios;
 use App\Models\Proyectos;
 
 class UsuarioController extends Controller
 {
-    //Login
+    //TODO: Login
     public function login(Request $request){
         // Buscar el usuario
         $usuario = Usuarios::where('nombre', $request->input('nombre'))->first();
@@ -57,7 +59,7 @@ class UsuarioController extends Controller
         return redirect()->route('inicio');
     }
 
-    //Perfil
+    //TODO: Perfil
     public function perfil($id){
         $usuario = Usuarios::findOrFail($id);
         return view('perfil', compact('usuario'));
@@ -84,13 +86,21 @@ class UsuarioController extends Controller
         }
 
 
-        // if(!empty($request->image)) {
+        if(!empty($request->img)) {
 
-        //     $image = $request->image;
-        //     $filename = uniqid() . '.' . $image->getClientOriginalExtension();
-        //     $image->move(public_path('images/fotosPerfil'), $filename);        
-        //     $usuario->img = $filename;
-        // }
+            $ruta = '/images/usuarios/';
+
+            if (file_exists(public_path($ruta) . $usuario->img) && $usuario->img != "default.png") {
+                unlink(public_path($ruta) . $usuario->img);
+            }
+
+            $foto = $request->file('img');
+            $nombreFoto = $id . '.' . $foto->getClientOriginalExtension();
+            $foto->move(public_path($ruta), $nombreFoto);
+
+
+            $usuario->img = $nombreFoto;
+        }
 
         $usuario->save();
         session(['usuario' =>  $usuario]);
@@ -98,7 +108,7 @@ class UsuarioController extends Controller
         return back()->with('success', 'Los datos de la cuenta han sido actualizados con exito.');
 
     }   
-    //Admin
+    //TODO: Admin
         //Ver
     public function adminVer(){
         $usuarios = Usuarios::all();
@@ -111,5 +121,13 @@ class UsuarioController extends Controller
         $usuario->proyectos()->delete(); // Elimina los proyectos relacionados al usuario
         $usuario->delete(); // Elimina al usuario
         return redirect()->route('inicio');  
+    }
+        //Delete
+    public function adminPermisos($id){
+        $usuario = Usuarios::findOrFail($id);
+        $usuario->admin = $usuario->admin ? 0 : 1;
+        $usuario->save();
+
+        return back();  
     }
 }

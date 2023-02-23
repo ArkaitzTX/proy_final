@@ -16,7 +16,7 @@
     <label class="form-label">Descripción:</label>
     <textarea cols="30" rows="10" name="descripcion" class="form-control validar"></textarea>
     <label class="form-label">Explicación:</label>
-    <textarea cols="30" rows="10" name="como" class="form-control validar"></textarea>
+    <textarea cols="30" rows="10" name="como" class="form-control"></textarea>
     <label class="form-label">Imagen:</label>
     <input type="file" name="img" class="form-control">
 </section>

@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Proyectos;
-use App\Models\Usuarios;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+
+use App\Models\Proyectos;
+use App\Models\Usuarios;
 
 class ProyectoController extends Controller
 {

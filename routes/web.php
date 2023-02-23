@@ -42,7 +42,7 @@ Route::group(['middleware' => 'usuarios'], function(){
     //ADMIN
     Route::get('/admin', [UsuarioController::class, 'adminVer'])->name('admin');
     Route::delete('/admin/{id}', [UsuarioController::class, 'adminDelete'])->name('adminDelete');
-    //!VER
+    Route::post('/admin/{id}', [UsuarioController::class, 'adminPermisos'])->name('adminPermisos');
 
     //VER
     Route::get('/view/{id}', [ProyectoController::class, 'ver'])->name('ver');

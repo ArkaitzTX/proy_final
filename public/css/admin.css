@@ -10,7 +10,7 @@ main table #botones {
   display: flex;
   justify-content: center;
 }
-main table #botones a {
+main table #botones a, main table #botones button {
   margin-right: 1vw;
 }
 main table td {
@@ -22,17 +22,4 @@ main table tr {
 }
 main table tr:last-child {
   border: none;
-}
-main table button {
-  background-color: white;
-  border: none;
-  color: black;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 10px 20px;
-  text-transform: uppercase;
-}
-main table button:hover {
-  background-color: gray;
-  color: white;
 }/*# sourceMappingURL=admin.css.map */
