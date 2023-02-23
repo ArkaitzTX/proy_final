@@ -42,6 +42,7 @@ class ProyectoController extends Controller
             $vPrev = $request->has('vista_prev') ? 0 : 1;
         }
         
+        
 
         // CREAR PROYECTO
         $nuevo = new Proyectos();
@@ -80,6 +81,14 @@ class ProyectoController extends Controller
     public function ver($id){
         $proyecto = Proyectos::findOrFail($id);
         return view('ver', compact('proyecto'));
+    }
+
+    public function delete($id){
+
+        $proyecto = Proyectos::findOrFail($id);
+        $proyecto->delete();
+        return redirect()->route('perfil');
+
     }
 
 }

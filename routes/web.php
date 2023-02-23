@@ -36,6 +36,15 @@ Route::group(['middleware' => 'usuarios'], function(){
         return view('nuevo');
     })->name('nuevo');
     Route::post('/new', [ProyectoController::class, 'nuevo'])->name('nuevoCrear');
+    //VER
+    Route::get('/view/{id}', [ProyectoController::class, 'ver'])->name('ver');
+
+    Route::get('/borrarProyecto/{id}', [ProyectoController::class, 'delete'])->name('borrarProyecto');
+
+    //ADMIN
+    Route::get('/admin', [UsuarioController::class, 'adminVer'])->name('admin');
+    Route::delete('/admin/{id}', [UsuarioController::class, 'adminDelete'])->name('adminDelete');
+    //!VER
 
     //VER
     Route::get('/view/{id}', [ProyectoController::class, 'ver'])->name('ver');
