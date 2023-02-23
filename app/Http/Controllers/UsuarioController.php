@@ -56,6 +56,45 @@ class UsuarioController extends Controller
 
         return redirect()->route('inicio');
     }
+
+    public function actualizar(Request $request , $id){
+
+                $usuario = Usuarios::findOrFail($id);
+        
+                if(!empty($request->nombre)){
+                    $request->validate([
+                        'nombre' => 'required|between:3,50|unique:usuarios,nombre',
+                    ]);
+        
+                    $usuario->nombre = $request->nombre;
+                }
+        
+                if(!empty($request->pass)){
+                    $request->validate([
+                        'pass' => 'required|between:6,50',
+                    ]);
+        
+                    $usuario->pass = $request->pass;
+                }
+
+
+                // if(!empty($request->image)) {
+
+                //     $image = $request->image;
+
+                //     $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+
+                //     $image->move(public_path('images/fotosPerfil'), $filename);        
+                
+                //     $usuario->img = $filename;
+                // }
+        
+                $usuario->save();
+        
+                return redirect()->route('perfil')->with('success', 'Los datos de la cuenta han sido actualizados con exito.');
+
+    }
+    //Register
     //Perfil
         //Ver
         //Update

@@ -19,6 +19,9 @@
                         style="color: var(--bs-white);">Proyectos</a></li>
                 <li class="nav-item"><a class="nav-link active" href="{{ route('nuevo') }}"
                         style="color: var(--bs-white);">Añadir proyecto</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{ route('perfil') }}"
+                    style="color: var(--bs-white);">Perfil</a></li>
+                        
             </ul>
             {{-- SECION --}}
             @if (isset(session()->get('usuario')->id))

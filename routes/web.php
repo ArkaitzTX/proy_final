@@ -31,8 +31,9 @@ Route::post('/login', [UsuarioController::class, 'login'])->name('login-a');
 Route::get('/logout', [UsuarioController::class, 'logout'])->name('logout');
 Route::post('/sign', [UsuarioController::class, 'sign'])->name('sign-a');
 
-
 Route::group(['middleware' => 'usuarios'], function(){
+    //BOX COLLIDER 2D
+    Route::view('/perfil', 'perfil')->name('perfil');
 	//NUEVO
     Route::get('/new', function () {
         return view('nuevo');
@@ -44,6 +45,10 @@ Route::group(['middleware' => 'usuarios'], function(){
     //ADMIN
     Route::get('/admin', [UsuarioController::class, 'adminVer'])->name('admin');
     Route::delete('/admin/{id}', [UsuarioController::class, 'adminDelete'])->name('adminDelete');
+    //!VER
+
+    Route::put('/actualizarPefil{id}', [UsuarioController::class, 'actualizar'])->name('actualizarPefil');
+
 });
 
 
