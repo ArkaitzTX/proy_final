@@ -87,11 +87,8 @@ class UsuarioController extends Controller
         // if(!empty($request->image)) {
 
         //     $image = $request->image;
-
         //     $filename = uniqid() . '.' . $image->getClientOriginalExtension();
-
         //     $image->move(public_path('images/fotosPerfil'), $filename);        
-        
         //     $usuario->img = $filename;
         // }
 
