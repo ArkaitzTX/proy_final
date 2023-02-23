@@ -1,0 +1,45 @@
+main {
+    color: white;
+    padding: 20px;
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+
+        #botones{
+            display: flex;
+            justify-content: center;
+            a{
+                margin-right: 1vw;
+            }
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        tr {
+            border-bottom: 1px solid white;
+            text-align: center;
+
+            &:last-child {
+                border: none;
+            }
+        }
+
+        button {
+            background-color: white;
+            border: none;
+            color: black;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: gray;
+                color: white;
+            }
+        }
+    }
+}

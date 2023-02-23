@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Usuarios;
+use App\Models\Proyectos;
 
 class UsuarioController extends Controller
 {
@@ -55,13 +56,22 @@ class UsuarioController extends Controller
 
         return redirect()->route('inicio');
     }
-    //Register
     //Perfil
         //Ver
         //Update
         //Delete
     //Admin
         //Ver
-        //Update
+    public function adminVer(){
+        $usuarios = Usuarios::all();
+        $proyectos = Proyectos::all();
+        return view('admin', compact('usuarios','proyectos'));
+    }
         //Delete
+        public function adminDelete($id){
+            $usuario = Usuarios::findOrFail($id);
+            $usuario->proyectos()->delete(); // Elimina los proyectos relacionados al usuario
+            $usuario->delete(); // Elimina al usuario
+            return redirect()->route('inicio');  
+        }
 }

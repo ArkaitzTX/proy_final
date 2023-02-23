@@ -1,0 +1,38 @@
+main {
+  color: white;
+  padding: 20px;
+}
+main table {
+  border-collapse: collapse;
+  width: 100%;
+}
+main table #botones {
+  display: flex;
+  justify-content: center;
+}
+main table #botones a {
+  margin-right: 1vw;
+}
+main table td {
+  padding: 10px;
+}
+main table tr {
+  border-bottom: 1px solid white;
+  text-align: center;
+}
+main table tr:last-child {
+  border: none;
+}
+main table button {
+  background-color: white;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+main table button:hover {
+  background-color: gray;
+  color: white;
+}/*# sourceMappingURL=admin.css.map */
