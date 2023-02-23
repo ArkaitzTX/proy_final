@@ -10,6 +10,8 @@ nav #perfil {
 nav #perfil img {
   width: 50px;
   height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 nav #perfil img:hover {
   opacity: 0.7;

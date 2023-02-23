@@ -8,7 +8,7 @@
         <div class="col">
             <div class="d-flex flex-column w-75 sticky-xl-top mb-4" style="top: 155px">
                 <img src="{{url("/images/usuarios/".$usuario->img)}}"
-                    alt="{{$usuario->img}}" class="rounded-circle mx-auto" style="width: 125px; height: 125px;">
+                    alt="{{$usuario->img}}" class="rounded-circle mx-auto" style="width: 125px; height: 125px; object-fit: cover;">
 
                 <form method="POST" action="{{ route('actualizarPefil', $usuario->id) }}"  enctype="multipart/form-data">
                     @csrf
