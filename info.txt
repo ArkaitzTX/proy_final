@@ -1,0 +1,4 @@
+
+
+
+INSERT INTO `proyectos` (`id`, `nombre`, `descripcion`, `como`, `archivo`, `tipo`, `img`, `vista_prev`, `id_usuarios`, `created_at`, `updated_at`) VALUES (NULL, 'prueba_1', 'The cites of the word in classical literature, discovered the undoubtable source rough the cites of the word in classical literature, discovered the undoubtable source', '1.aaaaaaaaaaaaaaaaaaaaaaaaaa\r\n2.bbbbbbbbbbbbbbbbbbbbbbbbbb', 'null', '0', 'default.jpg', '1', '1', NULL, NULL);
