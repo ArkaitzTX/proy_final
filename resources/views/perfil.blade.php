@@ -53,7 +53,7 @@
                                 <p class="mb-4">{{ $proyecto->descripcion }}</p>
                                 <div class="my-3">
                                     <a class="btn btn-primary btn-lg me-2" role="button" href="#">Ver</a>
-                                    <a class="btn btn-danger btn-lg" role="button" href="#">Eliminar</a>
+                                    <a class="btn btn-danger btn-lg" role="button" href="{{ route('borrarProyecto', $proyecto->id) }}">Eliminar</a>
                                 </div>
                             </div>
                         </div>

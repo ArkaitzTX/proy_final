@@ -93,6 +93,7 @@ class UsuarioController extends Controller
                 return redirect()->route('perfil')->with('success', 'Los datos de la cuenta han sido actualizados con exito.');
 
     }
+
     //Register
     //Perfil
         //Ver

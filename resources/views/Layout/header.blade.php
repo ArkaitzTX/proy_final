@@ -26,7 +26,8 @@
             {{-- SECION --}}
             @if (isset(session()->get('usuario')->id))
                 <section id="perfil">
-                    <a href="{{ route('logout')}}"><img class="rounded" src="{{url("images/usuarios/" . session()->get('usuario')->img)}}" alt="usuario"></a>
+                    <a name="" id="" class="btn btn-primary mx-4" href="{{ route('logout') }}" role="button">Cerrar sesion</a>
+                    <a href="{{ route('admin')}}"><img class="rounded" src="{{url("images/usuarios/" . session()->get('usuario')->img)}}" alt="usuario"></a>
                 </section>
             @else
                 <button onclick="location.href='{{ route('login') }}'" class="btn btn-primary" type="button">Iniciar sesion</button>
