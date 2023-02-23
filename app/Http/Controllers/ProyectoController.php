@@ -87,8 +87,13 @@ class ProyectoController extends Controller
 
         $proyecto = Proyectos::findOrFail($id);
         $proyecto->delete();
-        return redirect()->route('perfil');
 
+        // Actualizar session
+        $usuario = Usuarios::findOrFail(session()->get('usuario')->id);
+        session(['usuario' => $usuario]);
+
+
+        return back();
     }
 
 }

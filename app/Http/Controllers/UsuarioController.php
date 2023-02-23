@@ -98,7 +98,7 @@ class UsuarioController extends Controller
         $usuario->save();
         session(['usuario' =>  $usuario]);
 
-        return redirect()->route('perfil')->with('success', 'Los datos de la cuenta han sido actualizados con exito.');
+        return back()->with('success', 'Los datos de la cuenta han sido actualizados con exito.');
 
     }   
     //Admin

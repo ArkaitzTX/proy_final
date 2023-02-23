@@ -9,6 +9,7 @@ window.onload = () => {
                 busqueda: "",
                 fecha: "0",
                 tipo: "0",
+                tipos: ['css', 'js', 'json'],
             }
         },
         template: `
@@ -29,7 +30,7 @@ window.onload = () => {
     </article>
 
     <article id="projects">
-        <div v-for="(proy, index) in filtrar" class="py-4 py-xl-5">
+        <div v-for="(proy, index) in filtrar"  id="tarjetaproy"  class="py-4 py-xl-5">
             <div class="container" style="padding-left: 12px;">
                 <div class="bg-dark border rounded border-0 border-dark overflow-hidden">
                     <div class="row g-0">
@@ -43,7 +44,10 @@ window.onload = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6" style="min-height: 250px;">
+                        <div id="contenedor" class="col-md-6" style="min-height: 250px;">
+                          <div class="bg-dark text-light rounded" id="tipo">
+                            {{ tipos[proy.tipo - 1] }}                    
+                          </div>
                             <img class="w-100 h-100 fit-cover" :src="'/proyectos/images/' + proy.img">
                         </div>
                     </div>

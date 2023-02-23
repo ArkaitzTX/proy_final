@@ -15,11 +15,11 @@ class Proyectos extends Model
 
     public function usuarios()
     {
-        return $this->belongsTo(Actividades::class, 'id_usuario', 'id');
+        return $this->belongsTo(Usuarios::class, 'id_usuario', 'id');
     }
 
     public function comentarios()
     {
-        return $this->hasMany(Socios::class, 'id_proy', 'id');
+        return $this->hasMany(Comentarios::class, 'id_proy', 'id');
     }
 }
