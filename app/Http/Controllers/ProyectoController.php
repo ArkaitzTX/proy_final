@@ -15,7 +15,8 @@ class ProyectoController extends Controller
 {
     //Ver todos
     public function inicio(){
-        $proyectos = Proyectos::paginate(16);
+        //! $proyectos = Proyectos::paginate(16);
+        $proyectos = Proyectos::paginate(9999);
         return view('inicio', compact('proyectos'));
     }
     //Añadir

@@ -111,8 +111,8 @@ class UsuarioController extends Controller
     //TODO: Admin
         //Ver
     public function adminVer(){
-        $usuarios = Usuarios::all();
-        $proyectos = Proyectos::all();
+        $usuarios = Usuarios::paginate(16);
+        $proyectos = Proyectos::paginate(16);
         return view('admin', compact('usuarios','proyectos'));
     }
         //Delete

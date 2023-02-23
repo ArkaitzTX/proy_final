@@ -1,5 +1,4 @@
 main {
-    color: white;
     padding: 20px;
 
     table {
@@ -10,16 +9,17 @@ main {
             display: flex;
             justify-content: center;
             a, button{
+                height: 4vh;
                 margin-right: 1vw;
             }
         }
 
         td {
             padding: 10px;
+            height: 8vh;
         }
 
         tr {
-            border-bottom: 1px solid white;
             text-align: center;
 
             &:last-child {

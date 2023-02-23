@@ -58,6 +58,7 @@ window.onload = () => {
         `,
         computed: {
             filtrar(){
+              console.log(this.misProyectos.data);
                 return this.misProyectos.data
                 .filter(proyecto => {
                     let tipoCondicion = true;
