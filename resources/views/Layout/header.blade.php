@@ -18,15 +18,17 @@
                 <li class="nav-item"><a class="nav-link active" href="{{ route('proyectos') }}"
                         style="color: var(--bs-white);">Proyectos</a></li>
                 <li class="nav-item"><a class="nav-link active" href="{{ route('nuevo') }}"
-                        style="color: var(--bs-white);">Añadir proyecto</a></li>
-                <li class="nav-item"><a class="nav-link active" href="{{ route('perfil') }}"
+                        style="color: var(--bs-white);">Nuevo</a></li>
+                @if (isset(session()->get('usuario')->id))
+                <li class="nav-item"><a class="nav-link active" href="{{ route('perfil', session()->get('usuario')->id)}}"
                     style="color: var(--bs-white);">Perfil</a></li>
+                @endif
                         
             </ul>
-            {{-- SECION --}}
+            {{-- SECCION --}}
             @if (isset(session()->get('usuario')->id))
                 <section id="perfil">
-                    <a href="{{ route('admin')}}"><img class="rounded" src="{{url("images/usuarios/" . session()->get('usuario')->img)}}" alt="usuario"></a>
+                    <a href="{{ route('perfil', session()->get('usuario')->id)}}"><img class="rounded" src="{{url("images/usuarios/" . session()->get('usuario')->img)}}" alt="usuario"></a>
                 </section>
             @else
                 <button onclick="location.href='{{ route('login') }}'" class="btn btn-primary" type="button">Iniciar sesion</button>

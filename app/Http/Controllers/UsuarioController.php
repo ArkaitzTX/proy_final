@@ -57,48 +57,50 @@ class UsuarioController extends Controller
         return redirect()->route('inicio');
     }
 
+    //Perfil
+    public function perfil($id){
+        $usuario = Usuarios::findOrFail($id);
+        return view('perfil', compact('usuario'));
+    }
+
     public function actualizar(Request $request , $id){
 
-                $usuario = Usuarios::findOrFail($id);
-        
-                if(!empty($request->nombre)){
-                    $request->validate([
-                        'nombre' => 'required|between:3,50|unique:usuarios,nombre',
-                    ]);
-        
-                    $usuario->nombre = $request->nombre;
-                }
-        
-                if(!empty($request->pass)){
-                    $request->validate([
-                        'pass' => 'required|between:6,50',
-                    ]);
-        
-                    $usuario->pass = $request->pass;
-                }
+        $usuario = Usuarios::findOrFail($id);
+
+        if(!empty($request->nombre)){
+            $request->validate([
+                'nombre' => 'required|between:3,50|unique:usuarios,nombre',
+            ]);
+
+            $usuario->nombre = $request->nombre;
+        }
+
+        if(!empty($request->pass)){
+            $request->validate([
+                'pass' => 'required|between:6,50',
+            ]);
+
+            $usuario->pass = $request->pass;
+        }
 
 
-                // if(!empty($request->image)) {
+        // if(!empty($request->image)) {
 
-                //     $image = $request->image;
+        //     $image = $request->image;
 
-                //     $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+        //     $filename = uniqid() . '.' . $image->getClientOriginalExtension();
 
-                //     $image->move(public_path('images/fotosPerfil'), $filename);        
-                
-                //     $usuario->img = $filename;
-                // }
+        //     $image->move(public_path('images/fotosPerfil'), $filename);        
         
-                $usuario->save();
-        
-                return redirect()->route('perfil')->with('success', 'Los datos de la cuenta han sido actualizados con exito.');
+        //     $usuario->img = $filename;
+        // }
 
-    }
-    //Register
-    //Perfil
-        //Ver
-        //Update
-        //Delete
+        $usuario->save();
+        session(['usuario' =>  $usuario]);
+
+        return redirect()->route('perfil')->with('success', 'Los datos de la cuenta han sido actualizados con exito.');
+
+    }   
     //Admin
         //Ver
     public function adminVer(){
@@ -107,10 +109,10 @@ class UsuarioController extends Controller
         return view('admin', compact('usuarios','proyectos'));
     }
         //Delete
-        public function adminDelete($id){
-            $usuario = Usuarios::findOrFail($id);
-            $usuario->proyectos()->delete(); // Elimina los proyectos relacionados al usuario
-            $usuario->delete(); // Elimina al usuario
-            return redirect()->route('inicio');  
-        }
+    public function adminDelete($id){
+        $usuario = Usuarios::findOrFail($id);
+        $usuario->proyectos()->delete(); // Elimina los proyectos relacionados al usuario
+        $usuario->delete(); // Elimina al usuario
+        return redirect()->route('inicio');  
+    }
 }

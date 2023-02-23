@@ -19,7 +19,7 @@ class usuariosSeeder extends Seeder
 		$var = new Usuarios();
         $var->nombre = 'root';
         $var->pass = 'Inf041';
-        $var->img = 'default.jpg';
+        $var->img = 'default.png';
         $var->admin = 1;
     	$var->save();
 

@@ -12,7 +12,7 @@
                     <td>{{$usuario->nombre}}</td>
                     <td>{{count($usuario->proyectos) . '-proyetos'}}</td>
                     <td id="botones">
-                        <a class="btn btn-outline-light">Editar</a>
+                        <a class="btn btn-outline-light" href="{{ route('perfil', $usuario->id)}}">Editar</a>
                         <form action="{{ route('adminDelete', $usuario->id) }}" method="post">
                             @csrf {{ method_field('DELETE') }}
                             <button class="btn btn-outline-light">Eliminar</button>
