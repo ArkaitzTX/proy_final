@@ -20,8 +20,8 @@ window.onload = () => {
     const datos = JSON.parse(document.getElementById("info").value);
 
     const archivo = datos.archivo;
-    const modo = tipos[datos.tipo-1].nombre;
-    const tipoUsado = tipos[datos.tipo-1].conexion;
+    const modo = tipos[datos.tipo - 1].nombre;
+    const tipoUsado = tipos[datos.tipo - 1].conexion;
     const vp = Boolean(datos.vista_prev);
 
     //TODO: Ejecutar codigo(ACE)
@@ -69,9 +69,9 @@ window.onload = () => {
 
     }
 
-    async function pasarData(codigo, tipo){
+    async function pasarData(codigo, tipo) {
         try {
-            const response = await fetch('/proyectos/'+tipo+'/'+archivo+'.'+tipo);
+            const response = await fetch('/proyectos/' + tipo + '/' + archivo + '.' + tipo);
             const valor = await response.text();
 
             codigo.setValue(valor);
@@ -83,7 +83,7 @@ window.onload = () => {
     function verVista() {
         var vista = document.getElementById("vista");
 
-        let html = (vp) ? 
+        let html = (vp) ?
             secundario.getValue() + tipoUsado[0] + principal.getValue() + tipoUsado[1] :
             principal.getValue();
 
@@ -93,7 +93,7 @@ window.onload = () => {
     }
 
     //TODO: Compartir
-    function copiar() {
+    document.getElementById("copiar").addEventListener('click', function () {
         // Obtiene el URL actual de la página
         var link = window.location.href;
         // Copia el URL al portapapeles
@@ -104,18 +104,100 @@ window.onload = () => {
             .catch(function (error) {
                 console.error('No se pudo copiar el URL al portapapeles: ', error);
             });
-    }
+    })
 
-
-
-
-    // !EN PROCESO
     //TODO: Copiar codigo
+    const COPIADOS = Array.from(document.getElementsByClassName("copiar"));
+
+    COPIADOS.forEach(element => {
+        element.addEventListener('click', function (event) {
+            const key = event.target.id;
+            const datos = {
+                "c_1": principal.getValue(),
+                "c_2": secundario.getValue(),
+            }
+
+            navigator.clipboard.writeText(datos[key])
+                .then(function () {
+                    console.log('Codigo copiado al portapapeles!');
+                })
+                .catch(function (error) {
+                    console.error('No se pudo copiar el codigo al portapapeles: ', error);
+                });
+
+        });
+    });
 
     //TODO: Descargar Todo
-    //TODO: Descargar
+    document.getElementById("descargar").addEventListener('click', function () {
 
+        // ARCHIVOS
+        let zip = new JSZip();
+
+        //1
+        let nombreArchivo = 'principal' + '.' + modo;
+        zip.file(nombreArchivo, principal.getValue(), {
+            binary: true
+        });
+
+        // 2
+        if (vp) {
+            const LINK = [
+                '<link rel="stylesheet" href="principal.css">',
+                '<script src="principal.js"></script>'
+            ];
+            let contenido = LINK[datos.tipo - 1] + '\n' + secundario.getValue();
+
+            let nombreArchivo = 'secundario.html';
+            zip.file(nombreArchivo, contenido, {
+                binary: true
+            });
+        }
+
+        // zip
+        zip.generateAsync({
+            type: "blob"
+        }).then(function (blob) {
+            saveAs(blob, "codigo.zip");
+        });
+
+    })
+
+    ////TODO:  Descargar
+    const DESCARGADOS = Array.from(document.getElementsByClassName("descargar"));
+
+    DESCARGADOS.forEach(element => {
+        element.addEventListener('click', function (event) {
+            const key = event.target.id;
+            const datos = {
+                "d_1": principal.getValue(),
+                "d_2": secundario.getValue(),
+            }
+            const nombre = {
+                "d_1": 'principal.'+modo,
+                "d_2": 'secundario.html',
+            }
+
+            // Descargar
+            // Crea un objeto URL a partir del Blob para descargar el archivo
+            let blob = new Blob([datos[key]]);
+            let url = window.URL.createObjectURL(blob);
+
+            // Crea un elemento <a> para descargar el archivo
+            let link = document.createElement('a');
+            link.href = url;
+            link.download = nombre[key];
+            link.click();
+
+            // Limpia el objeto URL creado
+            window.URL.revokeObjectURL(url);
+            
+
+        });
+    });
+
+    // !----
     //TODO: Comentarios
-
+    // !----
 
 }

@@ -86,60 +86,6 @@ window.onload = () => {
             }
         },
         methods: {
-            // ! SIN ZIP
-            // descargar(event){
-            //     const proyecto = this.misProyectos.data.find(objeto => objeto.id == event.target.id);
-
-            //     // ARCHIVOS
-            //     //1
-            //     let misTipos = ["css", "js", "json"];
-            //     let ruta1 = '/proyectos/' + misTipos[proyecto.tipo-1] + '/';
-            
-            //     axios.get(ruta1 + proyecto.archivo + '.' + misTipos[proyecto.tipo-1], {
-            //         responseType: 'blob'
-            //     })
-            //     .then(response => {
-            //         // Crea un objeto URL a partir del Blob para descargar el archivo
-            //         let blob = new Blob([response.data]);
-            //         let url = window.URL.createObjectURL(blob);
-            
-            //         // Crea un elemento <a> para descargar el archivo
-            //         let link = document.createElement('a');
-            //         link.href = url;
-            //         link.download = 'principal.' + misTipos[proyecto.tipo-1];
-            //         link.click();
-            
-            //         // Limpia el objeto URL creado
-            //         window.URL.revokeObjectURL(url);
-            //     });
-            //     //2
-            //     if (proyecto.vista_prev) {
-            //         let ruta2 = '/proyectos/html/';
-            //         axios.get(ruta2 + proyecto.archivo + '.html')
-            //         .then(response => {
-            //             //Crea el link de conexion
-            //             const LINK = [
-            //                 '<link rel="stylesheet" href="principal.'+misTipos[proyecto.tipo-1]+'">',
-            //                 '<script src="principal.'+misTipos[proyecto.tipo-1]+'"></script>'
-            //             ];
-            //             let contenido = LINK[proyecto.tipo-1] + '\n' + response.data;
-
-            //             // Crea un objeto URL a partir del Blob para descargar el archivo
-            //             let blob = new Blob([contenido]);
-            //             let url = window.URL.createObjectURL(blob);
-                
-            //             // Crea un elemento <a> para descargar el archivo
-            //             let link = document.createElement('a');
-            //             link.href = url;
-            //             link.download = 'secundario.html';
-            //             link.click();
-                
-            //             // Limpia el objeto URL creado
-            //             window.URL.revokeObjectURL(url);
-            //         });
-            //     }   
-            // }
-            // ! CON ZIP
             descargar(event) {
                 const proyecto = this.misProyectos.data.find(objeto => objeto.id == event.target.id);
               
@@ -156,7 +102,6 @@ window.onload = () => {
                   // Añadir archivo 1 al zip
                   let extension = proyecto.extension ? '.' + proyecto.extension : '';
                   let nombreArchivo = 'principal' + extension + '.' + misTipos[proyecto.tipo - 1];
-                  console.log(misTipos[proyecto.tipo - 1]);
                   zip.file(nombreArchivo, response.data, {
                     binary: true
                   });
