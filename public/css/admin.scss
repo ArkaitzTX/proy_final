@@ -2,29 +2,26 @@ main {
     padding: 20px;
 
     table {
-        border-collapse: collapse;
+        border-spacing: 0;
+        border: none;
         width: 100%;
 
         #botones{
             display: flex;
             justify-content: center;
             a, button{
-                height: 4vh;
+                // height: 4vh;
                 margin-right: 1vw;
             }
         }
 
         td {
             padding: 10px;
-            height: 8vh;
+            // height: 8vh;
         }
 
         tr {
             text-align: center;
-
-            &:last-child {
-                border: none;
-            }
         }
     }
 }

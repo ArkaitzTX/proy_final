@@ -2,7 +2,7 @@
 @section('content')
 
 <link rel="stylesheet" href="{{asset('css/admin.css')}}">
-<main>
+<main style="background-color: hsl(0, 0%, 96%)">
 <section>
     <h1 class="text-dark">Usuarios</h1>
     <div class="table-responsive">

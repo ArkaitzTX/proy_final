@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{asset('css/layout.css')}}">
     <title>GlichCode</title>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100"  style="background-color: hsl(0, 0%, 96%)">
 
 {{-- CSS --}}
 <link rel="stylesheet" href="{{asset('css/header.css')}}">
