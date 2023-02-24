@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Proyectos;
-use App\Models\Usuarios;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+
+use App\Models\Proyectos;
+use App\Models\Usuarios;
 
 class ProyectoController extends Controller
 {
     //Ver todos
     public function inicio(){
-        $proyectos = Proyectos::paginate(16);
+        //! $proyectos = Proyectos::paginate(16);
+        $proyectos = Proyectos::paginate(9999);
         return view('inicio', compact('proyectos'));
     }
     //Añadir
@@ -41,6 +43,7 @@ class ProyectoController extends Controller
         if ($request->tipo != 3) {
             $vPrev = $request->has('vista_prev') ? 0 : 1;
         }
+        
         
 
         // CREAR PROYECTO
@@ -80,6 +83,19 @@ class ProyectoController extends Controller
     public function ver($id){
         $proyecto = Proyectos::findOrFail($id);
         return view('ver', compact('proyecto'));
+    }
+
+    public function delete($id){
+
+        $proyecto = Proyectos::findOrFail($id);
+        $proyecto->delete();
+
+        // Actualizar session
+        $usuario = Usuarios::findOrFail(session()->get('usuario')->id);
+        session(['usuario' => $usuario]);
+
+
+        return back();
     }
 
 }

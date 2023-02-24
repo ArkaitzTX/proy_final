@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre', 50);
             $table->string('descripcion', 500);
-            $table->string('como', 500);
+            $table->string('como', 500)->nullable();;
             $table->string('archivo', 200);
             $table->integer('tipo');
             $table->string('img', 100);

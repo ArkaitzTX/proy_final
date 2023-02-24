@@ -15,11 +15,11 @@ class Comentarios extends Model
 
     public function proyectos()
     {
-        return $this->belongsTo(Actividades::class, 'id_proy', 'id');
+        return $this->belongsTo(Proyectos::class, 'id_proy', 'id');
     }
 
     public function usuarios()
     {
-        return $this->belongsTo(Actividades::class, 'id_usu', 'id');
+        return $this->belongsTo(Usuarios::class, 'id_usu', 'id');
     }
 }

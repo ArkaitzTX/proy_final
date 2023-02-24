@@ -1,0 +1,13 @@
+#tarjetaproy #contenedor {
+  position: relative;
+}
+#tarjetaproy #tipo {
+  width: 6vw !important;
+  height: 6vh !important;
+  position: absolute;
+  top: 1vw;
+  left: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=proyecto.css.map */

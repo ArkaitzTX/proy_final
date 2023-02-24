@@ -11,6 +11,8 @@
 {{-- CONEXIONES --}}
 <link rel="stylesheet" href="{{asset('css/inicio.css')}}">
 <script src="{{asset('js/inicio.js')}}"></script>
+<link rel="stylesheet" href="{{asset('css/proyecto.css')}}">
+
 
 
 <main>
