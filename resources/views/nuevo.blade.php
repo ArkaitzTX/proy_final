@@ -42,8 +42,8 @@
             </section>
         </section>
         {{-- ENVIAR --}}
-        <input type="text" id="archivo1" name="archivo1" hidden>
-        <input type="text" id="archivo2" name="archivo2" hidden>
+        <textarea type="text" id="archivo1" name="archivo1" hidden></textarea>
+        <textarea type="text" id="archivo2" name="archivo2" hidden></textarea>
         <button type="submit" id="enviar" class="btn btn-primary my-3">Enviar</button>
 
     </form>
