@@ -87,7 +87,27 @@ class ProyectoController extends Controller
 
     public function delete($id){
 
+        // Info
         $proyecto = Proyectos::findOrFail($id);
+
+        // Archivo 1
+        $misTipos = array("css", "js", "json");
+        $archivo1 = public_path('/proyectos/' . $misTipos[$proyecto->tipo-1] . '/') . $proyecto->archivo . '.' . $misTipos[$proyecto->tipo-1];
+
+        if (file_exists($archivo1)) {
+            unlink($archivo1);
+        }
+
+        // Archivo 2
+        if ($proyecto->vista_prev) {
+            $archivo2 = public_path('/proyectos/html/') . $proyecto->archivo . '.html';
+
+            if (file_exists($archivo2)) {
+                unlink($archivo2);
+            }
+        }
+
+        // Bd
         $proyecto->delete();
 
         // Actualizar session
