@@ -17,22 +17,21 @@ window.onload = () => {
             conexion: null
         }
     ];
-    let modo = 'css';
-    let tipoUsado = {
-        nombre: 'css',
-        vp: true,
-        conexion: ["<style>", "</style>"]
-    };
+    const datos = JSON.parse(document.getElementById("info").value);
 
+    const archivo = datos.archivo;
+    const modo = tipos[datos.tipo-1].nombre;
+    const tipoUsado = tipos[datos.tipo-1].conexion;
+    const vp = Boolean(datos.vista_prev);
 
     //TODO: Ejecutar codigo(ACE)
     ace.require('ace/ext/language_tools');
+    let secundario = '';
+    let principal = '';
 
     // PRINCIPAL
-    // !Elegir modo con el tipo
-    // !Elegir tipoUsado con el tipo
-    let principal = ace.edit("principal");
-    principal.getSession().setMode("ace/mode/"+modo);
+    principal = ace.edit("principal");
+    principal.getSession().setMode("ace/mode/" + modo);
     principal.setOptions({
         fontSize: '16pt',
         showLineNumbers: true,
@@ -43,31 +42,50 @@ window.onload = () => {
         enableLiveAutocompletion: true,
     });
     principal.setTheme("ace/theme/monokai");
+    principal.session.on("change", verVista);
 
-    // SECUNDARIO
-    let secundario = ace.edit("secundario");
-    secundario.getSession().setMode("ace/mode/html");
-    secundario.setOptions({
-        fontSize: '16pt',
-        showLineNumbers: true,
-        showGutter: true,
-        vScrollBarAlwaysVisible: false,
-        enableBasicAutocompletion: true,
-        enableSnippets: true,
-        enableLiveAutocompletion: true,
-    });
-    secundario.setTheme("ace/theme/monokai");
+    pasarData(principal, modo);
 
-    // VISTA
-    // Activar o desactivar depende de vp
-    if (true) {
-        principal.session.on("change", verVista);
+
+    // OTRO
+    if (vp) {
+
+        // SECUNDARIO
+        secundario = ace.edit("secundario");
+        secundario.getSession().setMode("ace/mode/html");
+        secundario.setOptions({
+            fontSize: '16pt',
+            showLineNumbers: true,
+            showGutter: true,
+            vScrollBarAlwaysVisible: false,
+            enableBasicAutocompletion: true,
+            enableSnippets: true,
+            enableLiveAutocompletion: true,
+        });
+        secundario.setTheme("ace/theme/monokai");
         secundario.session.on("change", verVista);
+
+        pasarData(secundario, 'html');
+
+    }
+
+    async function pasarData(codigo, tipo){
+        try {
+            const response = await fetch('/proyectos/'+tipo+'/'+archivo+'.'+tipo);
+            const valor = await response.text();
+
+            codigo.setValue(valor);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     function verVista() {
         var vista = document.getElementById("vista");
-        let html = secundario.getValue() + tipoUsado.conexion[0] + principal.getValue() + tipoUsado.conexion[1];
+
+        let html = (vp) ? 
+            secundario.getValue() + tipoUsado[0] + principal.getValue() + tipoUsado[1] :
+            principal.getValue();
 
         vista.contentDocument.open();
         vista.contentDocument.write(html);
@@ -88,6 +106,10 @@ window.onload = () => {
             });
     }
 
+
+
+
+    // !EN PROCESO
     //TODO: Copiar codigo
 
     //TODO: Descargar Todo
