@@ -4,8 +4,8 @@
 {{-- CONEXIONES --}}
 <link rel="stylesheet" href="{{asset('css/ver.css')}}">
 {{-- JSZIP --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
 <main class="container text-center my-5">
@@ -13,7 +13,15 @@
     {{-- DATOS --}}
     <input id="info" type="text" value="{{json_encode($proyecto)}}" hidden>
 
+
     <h1 class="my-4 display-3 fw-bold ls-tight">{{$proyecto->nombre}}</h1>
+
+    <section>
+        {{-- PERFIL USUARIO --}}
+        <img src="{{url("images/usuarios/" . $proyecto->usuarios->img)}}" alt="img_perfil">
+        <p>{{$proyecto->usuarios->nombre}}</p>
+    </section>
+
     <h3 class="my-3">{{$proyecto->descripcion}}</h3>
 
     <section class="my-5">

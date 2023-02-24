@@ -99,7 +99,12 @@ window.onload = () => {
         // Copia el URL al portapapeles
         navigator.clipboard.writeText(link)
             .then(function () {
-                console.log('URL copiado al portapapeles!');
+                Swal.fire({
+                    icon: 'success',
+                    text: 'URL copiado al portapapeles!',
+                    timer: 1000, 
+                    showConfirmButton: false 
+                  })
             })
             .catch(function (error) {
                 console.error('No se pudo copiar el URL al portapapeles: ', error);
@@ -119,7 +124,12 @@ window.onload = () => {
 
             navigator.clipboard.writeText(datos[key])
                 .then(function () {
-                    console.log('Codigo copiado al portapapeles!');
+                    Swal.fire({
+                        icon: 'success',
+                        text: 'Codigo copiado al portapapeles!',
+                        timer: 1000, 
+                        showConfirmButton: false 
+                      })
                 })
                 .catch(function (error) {
                     console.error('No se pudo copiar el codigo al portapapeles: ', error);

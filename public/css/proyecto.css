@@ -1,3 +1,4 @@
+@charset "UTF-8";
 #tarjetaproy #contenedor {
   position: relative;
 }
@@ -10,4 +11,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#tarjetaproy h2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 25vw; /* ajustar según el ancho deseado */
+}
+#tarjetaproy p {
+  line-height: 1.5;
+  max-width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* establece el número máximo de líneas */
+  -webkit-box-orient: vertical;
 }/*# sourceMappingURL=proyecto.css.map */

@@ -20,10 +20,13 @@
     <section id="inicio" class="py-4 py-xl-5">
         <article class="container bg-opacity-50 bg-white rounded">
             <div class="text-center p-4 p-lg-5">
-                <p class="fw-bold text-primary mb-2">Comparte, aprende y explora</p>
+                <p class="fw-bold text-primary mb-2">Comparte, explora y aprende</p>
                 <h1 class="fw-bold mb-4">GlichCode es una herramienta para descubrir y compartir código</h1>
                 <p>
-                    Esta es una pagina en la que puedes subir pequeños fragmentos de codigo para que otros usuario puedan usarlo. No es una pagina donde puedas subir el codigo de un proyecto completo. Algunos ejemplos de codigos que podras usar son: animaciones, diseños de elementos, codigos reutilisable, archivos de almacenamiento
+                    Bienvenido a esta plataforma para compartir fragmentos de código.
+                    Aquí puedes compartir pequeñas partes de código que puedan ser útiles a otros usuarios. 
+                    Esta página no está diseñada para compartir proyectos completos, sino para subir fragmentos de código en CSS, JavaScript y JSON, junto con las instrucciones y codigo necesario para su uso. 
+                    ¡Gracias por ser parte de nuestra comunidad de desarrolladores!         
                 </p>
                 <a href="{{ route('proyectos') }}" class="btn btn-primary fs-5 me-2 py-2 px-4" type="button">Explora</a>
                 <a href="{{ route('nuevo') }}" class="btn btn-light fs-5 py-2 px-4" type="button">Comparte</a>

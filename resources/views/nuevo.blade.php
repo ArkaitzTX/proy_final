@@ -3,20 +3,26 @@
 
 {{-- CONEXIONES --}}
 <link rel="stylesheet" href="{{asset('css/nuevo.css')}}">
+{{-- LIBRERIAS --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <main class="container my-3 d-flex flex-column align-items-start">
     <form action="{{ route('nuevoCrear') }}" method="post" enctype="multipart/form-data">
         @csrf
         {{-- INFORMACION PROYECTO --}}
 
-        <h1 class="text-primary text-center my-5">Crea un nuevo proyecto</h1>
+        <h1 class="text-primary text-center">Crea un nuevo proyecto</h1>
         <section class="my-3">
             <label class="form-label">Nombre:</label>
-            <input type="text" name="nombre" class="form-control validar">
+            <input type="text" name="nombre" class="form-control validar" max="50">
+            <p class="text-danger" id="nombre_error"></p>
             <label class="form-label">Descripción:</label>
-            <textarea cols="30" rows="10" name="descripcion" class="form-control validar"></textarea>
+            <textarea cols="30" rows="10" name="descripcion" class="form-control validar"  max="500"></textarea>
+            <p class="text-danger" id="descripcion_error"></p>
             <label class="form-label">Explicación:</label>
-            <textarea cols="30" rows="10" name="como" class="form-control"></textarea>
+            <textarea cols="30" rows="10" name="como" class="form-control validar" max="500"></textarea>
+            <p class="text-danger" id="como_error"></p>
             <label class="form-label">Imagen:</label>
             <input type="file" name="img" class="form-control">
         </section>
@@ -48,6 +54,9 @@
 
     </form>
 </main>
+
+{{-- !BOTON INFO --}}
+<button id="info" class="btn btn-info">?</button>
 
 {{-- ACE CODE --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>

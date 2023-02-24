@@ -174,16 +174,40 @@ window.onload = () => {
 
         // Enviar el formulario
         // VALIDACION NOMBRE Y DESCRIPCION
+        const LONG = {
+            nombre: {
+                longitud: 50,
+                vacio: false
+            },
+            descripcion:  {
+                longitud: 500,
+                vacio: false
+            },
+            como: {
+                longitud: 500,
+                vacio: true
+            },
+        }
         const val = Array.from(document.getElementsByClassName('validar'));
         let error = false;
         val.forEach(e => {
-            if (e.value == "") {
+            if (e.value == "" && !LONG[e.name].vacio) {
                 e.style.border = "2px solid red";
                 e.focus();
                 error = true;
+
+                document.getElementById(e.name+"_error").innerHTML = "El campo no puede estar vacio";
+            }
+            else if(LONG[e.name].longitud < e.value.length){
+                e.style.border = "2px solid red";
+                e.focus();
+                error = true;
+
+                document.getElementById(e.name+"_error").innerHTML = "El campo no puede tener una longitud superior a " + LONG[e.name].longitud;
             }
             else{
                 e.style.border = "1px solid black";
+                document.getElementById(e.name+"_error").innerHTML = "";
             }
         });
 
@@ -191,4 +215,22 @@ window.onload = () => {
             document.querySelector('form').submit();
         }
     });
+
+    // BOTON INFO
+    document.getElementById('info').addEventListener("click", function (event) {
+        Swal.fire({
+            title: 'Informacion: ',
+            html:
+                '   \
+                <b>Nombre:</b> Escriba el nombre de su proyecto.<br> \
+                <b>Descripción:</b> Agregue una breve descripción de su proyecto.<br> \
+                <b>Explicación:</b> Proporcione toda la información necesaria para que otros usuarios puedan usar e implementar su proyecto de manera efectiva. Esta sección es opcional, pero puede ser útil para mejorar la comprensión del proyecto.<br>\
+                <b>Imagen:</b> Adjunte una imagen que muestre información relevante sobre su proyecto. Esto es opcional, pero puede ser útil para atraer la atención de otros usuarios.<br>\
+                <b>Código principal:</b> Escriba el código principal de su proyecto. Tenga en cuenta que solo debe incluir el código principal que quiera compartir.<br>\
+                <b>Código secundario:</b> Incluya cualquier otro código que sea necesario para que su proyecto funcione correctamente. Esta sección es opcional, pero puede ser útil para proporcionar ejemplos de cómo implementar el código principal. Tenga en cuenta que esta sección es de tipo HTML, por lo que puede agregar tanto HTML, CSS(style) como JS(script).<br><br>\
+                ',
+            focusConfirm: false,
+          })
+    });
+
 }
