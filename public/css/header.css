@@ -1,7 +1,6 @@
 nav {
   position: sticky !important;
   top: 0;
-  box-shadow: white 0px 1px 1px;
   z-index: 10;
 }
 nav #perfil {

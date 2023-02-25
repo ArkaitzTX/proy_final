@@ -14,9 +14,10 @@ window.onload = () => {
         },
         template: `
     <article id="filtros">
-        <div class="rounded d-flex align-items-center justify-content-around text-light bg-opacity-75 bg-dark">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="busqueda">
-            <select class="form-select w-25" aria-label="Default select example" v-model="fecha">
+    <div class="w-75 d-flex align-items-center">
+        <div class="d-flex align-items-center justify-content-around text-light">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar proyecto" aria-label="Search" v-model="busqueda">
+            <select class="form-select w-25 mx-4" aria-label="Default select example" v-model="fecha">
                 <option value="0">Mas Nuevos</option>
                 <option value="1">Mas Viejos</option>
             </select>
@@ -26,6 +27,7 @@ window.onload = () => {
                 <option value="2">js</option>
                 <option value="3">json</option>
             </select>
+            </div>
         </div>
     </article>
 
