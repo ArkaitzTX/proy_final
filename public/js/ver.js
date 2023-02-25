@@ -102,9 +102,9 @@ window.onload = () => {
                 Swal.fire({
                     icon: 'success',
                     text: 'URL copiado al portapapeles!',
-                    timer: 1000, 
-                    showConfirmButton: false 
-                  })
+                    timer: 1000,
+                    showConfirmButton: false
+                })
             })
             .catch(function (error) {
                 console.error('No se pudo copiar el URL al portapapeles: ', error);
@@ -127,9 +127,9 @@ window.onload = () => {
                     Swal.fire({
                         icon: 'success',
                         text: 'Codigo copiado al portapapeles!',
-                        timer: 1000, 
-                        showConfirmButton: false 
-                      })
+                        timer: 1000,
+                        showConfirmButton: false
+                    })
                 })
                 .catch(function (error) {
                     console.error('No se pudo copiar el codigo al portapapeles: ', error);
@@ -184,7 +184,7 @@ window.onload = () => {
                 "d_2": secundario.getValue(),
             }
             const nombre = {
-                "d_1": 'principal.'+modo,
+                "d_1": 'principal.' + modo,
                 "d_2": 'secundario.html',
             }
 
@@ -201,13 +201,21 @@ window.onload = () => {
 
             // Limpia el objeto URL creado
             window.URL.revokeObjectURL(url);
-            
+
 
         });
     });
 
-    // !----
-    //TODO: Comentarios
-    // !----
-
+    // COMENTARIOS
+    const textoInput = document.getElementById("texto");
+    const contadorCaracteres = document.getElementById("texto-char");
+    
+    textoInput.addEventListener("input", function () {
+        const longitudTexto = textoInput.value.length;
+        contadorCaracteres.textContent = `${longitudTexto}/250`;
+    
+        if (longitudTexto >= 249) {
+            textoInput.value = textoInput.value.slice(0, 249);
+        }
+    });
 }

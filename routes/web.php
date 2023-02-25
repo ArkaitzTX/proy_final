@@ -17,7 +17,7 @@ use App\Http\Controllers\UsuarioController;
 
 //INDEX
 Route::get('/', [ProyectoController::class, 'inicio'])->name('inicio');
-Route::get('/#projects', [ProyectoController::class, 'inicio'])->name('proyectos');
+Route::get('/#proyectos', [ProyectoController::class, 'inicio'])->name('proyectos');
 
 //LOGIN/GIGN-UP
 Route::get('/login', function () {
@@ -30,12 +30,12 @@ Route::post('/login', [UsuarioController::class, 'login'])->name('login-a');
 Route::get('/logout', [UsuarioController::class, 'logout'])->name('logout');
 Route::post('/sign', [UsuarioController::class, 'sign'])->name('sign-a');
 
-//VER
+//VER PROYECTO
 Route::get('/view/{id}', [ProyectoController::class, 'ver'])->name('ver');
 
 
 Route::group(['middleware' => 'usuarios'], function(){
-	//NUEVO
+	//NUEVO PROYECTO
     Route::get('/new', function () {
         return view('nuevo');
     })->name('nuevo');
@@ -51,11 +51,19 @@ Route::group(['middleware' => 'usuarios'], function(){
     Route::delete('/admin/{id}', [UsuarioController::class, 'adminDelete'])->name('adminDelete');
 
     //PERFIL
-    Route::get('/perfil/{id}', [UsuarioController::class, 'perfil'])->name('perfil');
-    Route::put('/actualizarPefil{id}', [UsuarioController::class, 'actualizar'])->name('actualizarPefil');
+    Route::get('/profile/{id}', [UsuarioController::class, 'perfil'])->name('perfil');              // Route::get('/perfil/{id}', [UsuarioController::class, 'perfil'])->name('perfil');
+    Route::put('/update/{id}', [UsuarioController::class, 'actualizar'])->name('actualizarPefil');  // Route::put('/actualizarPefil{id}', [UsuarioController::class, 'actualizar'])->name('actualizarPefil');
 
-    Route::get('/borrarProyecto/{id}', [ProyectoController::class, 'delete'])->name('borrarProyecto');
+    //ELIMINAR PROYECTO
+    Route::get('/delete/{id}', [ProyectoController::class, 'delete'])->name('borrarProyecto');      // Route::get('/borrarProyecto/{id}', [ProyectoController::class, 'delete'])->name('borrarProyecto');
+    
+    //EDIT Y UPDATE PROYECTO
+    Route::get('/proyedit/{id}', [ProyectoController::class, 'edit'])->name('proyedit');
+    Route::put('/proyupdate/{id}', [ProyectoController::class, 'update'])->name('proyupdate');
 
+    //COMENTARIOS
+    Route::post('/updatecoment', [ProyectoController::class, 'insertarCom'])->name('insertarCom');
+    Route::delete('/deletecoment/{id}', [ProyectoController::class, 'eliminarCom'])->name('eliminarCom');
 });
 
 

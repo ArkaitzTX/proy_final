@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 
 use App\Models\Proyectos;
 use App\Models\Usuarios;
+use App\Models\Comentarios;
 
 class ProyectoController extends Controller
 {
@@ -84,7 +85,7 @@ class ProyectoController extends Controller
         $proyecto = Proyectos::findOrFail($id);
         return view('ver', compact('proyecto'));
     }
-
+    // Eliminar
     public function delete($id){
 
         // Info
@@ -117,5 +118,90 @@ class ProyectoController extends Controller
 
         return back();
     }
+
+    // Editar
+    public function edit($id){
+        $proyecto = Proyectos::findOrFail($id);
+        return view('nuevo', compact('proyecto'));
+    }
+    // Update
+    public function update(request $request, $id){
+
+        $proyecto = Proyectos::findOrFail($id);
+
+        //! EN CASO DE QUE SEA JSON(BUG)
+        $vPrev = 0;
+        if ($request->tipo != 3) {
+            $vPrev = $request->has('vista_prev') ? 0 : 1;
+        }
+
+        $nuevo =Proyectos::findOrFail($id);
+        $nuevo->nombre = $request->nombre;
+        $nuevo->descripcion = $request->descripcion;
+        $nuevo->como = $request->como;
+        $nuevo->tipo = $request->tipo;
+        $nuevo->vista_prev = $vPrev;
+
+        // IMAGEN
+        if ($request->hasFile('img')) {
+            if ($proyecto->img != 'default.jpg') {
+                $nombreImg = $proyecto->img;
+            } else {
+                $nombreImg = $proyecto->archivo;
+                $nombreImg = $nombreImg . "." . $request->file("img")->getClientOriginalExtension();
+
+                $nuevo->img = $nombreImg;
+            }
+
+            $anterior = public_path('proyectos/images/') . $nombreImg;
+            if (file_exists($anterior)) {
+                // Eliminar el archivo anterior
+                unlink($anterior);
+            }
+            // Mover el nuevo archivo
+            $request->file('img')->move(public_path('proyectos/images'), $nombreImg);
+        }
+        // ARCHIVOS
+            //1
+            $misTipos = array("css", "js", "json");
+            $ruta1 = public_path('proyectos/'. $misTipos[$request->tipo-1] . '/');
+            $arch1 = $request->archivo1;
+            $nombreArchivo = $proyecto->archivo . '.' . $misTipos[$request->tipo-1];
+            if (file_exists($ruta1 . $nombreArchivo)) {
+                unlink($ruta1 . $nombreArchivo);
+            }
+            File::put($ruta1 . $nombreArchivo, $arch1);
+    
+            //2
+            if ($vPrev) {
+                $ruta2 = public_path('proyectos/html/');
+                $arch2 = $request->archivo2;
+                $nombreArchivo = $proyecto->archivo . '.html';
+                if (file_exists($ruta2 . $nombreArchivo)) {
+                    unlink($ruta2 . $nombreArchivo);
+                }
+                File::put($ruta2 . $nombreArchivo, $arch2);
+            }
+    
+        // RETURN
+        $nuevo->save();
+        return redirect()->route('inicio');
+    }
+
+    // Comnetarios
+        // Insertar
+        public function insertarCom(request $request){
+            $nuevo = new Comentarios($request->all());
+        	$nuevo->save();
+
+            return back();
+        }
+
+        // Eliminar
+        public function eliminarCom($id){
+            Comentarios::findOrFail($id)->delete();
+            return back();
+        }
+
 
 }

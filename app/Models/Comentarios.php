@@ -10,8 +10,8 @@ class Comentarios extends Model
     use HasFactory;
     protected $table = "comentarios";
     protected $primaryKey = "id";
-    protected $fillable = ['texto', 'id_padre', 'id_proy', 'id_usu'];
-    protected $hidden = ['id'];
+    protected $fillable = ['texto', 'id_proy', 'id_usu'];
+    // protected $hidden = ['id'];
 
     public function proyectos()
     {

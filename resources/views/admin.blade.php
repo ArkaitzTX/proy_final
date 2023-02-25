@@ -65,8 +65,9 @@
                         <td>{{$proyecto->nombre}}</td>
                         <td id="botones">
 
-                            <a class="btn btn-outline-light" role="button" href="{{ route('ver', $proyecto->id) }}">Ver</a>
-                            <a class="btn btn-outline-danger" role="button" href="{{ route('borrarProyecto', $proyecto->id) }}">Eliminar</a>
+                            <a class="btn btn-outline-light" role="button" href="{{ route('ver', $proyecto->id) }}">VER</a>
+                            <a class="btn btn-outline-light" href="{{ route('proyedit',  $proyecto->id)}}">EDITAR</a>
+                            <a class="btn btn-outline-danger" role="button" href="{{ route('borrarProyecto', $proyecto->id) }}">ELIMINAR</a>
                             {{-- !EDITAR --}}
 
                         </td>

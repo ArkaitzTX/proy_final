@@ -12,3 +12,16 @@ main{
         }
     }
 }
+
+#comentarios{
+    #contenedor{
+        min-width: 95vw !important;
+    }
+    textarea{
+        resize: none;
+    }
+    button{
+        width: 100px;
+        height: 40px;
+    }
+}

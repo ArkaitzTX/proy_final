@@ -5,7 +5,8 @@
 <link rel="stylesheet" href="{{asset('css/ver.css')}}">
 {{-- JSZIP --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+{{-- VUE  --}}
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 
 <main class="container text-center my-5">
@@ -58,6 +59,73 @@
 
     </section>
 </main>
+
+{{-- !NO ELIMINAR CON GIT --}}
+@isset(session()->get('usuario')->id)
+<section id="comentarios">
+    <div class="card border-0">
+        <!-- TODO: ESCRIBIR -->
+        <form action="{{ route('insertarCom') }}" method="POST" class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+            @csrf {{ method_field('POST') }}
+
+            <div class="d-flex flex-start w-100">
+                <!-- IMG  PERFIL -->
+                <img class="rounded-circle shadow-1-strong me-3"
+                    src="{{url("images/usuarios/" . session()->get('usuario')->img)}}" alt="avatar" width="40"
+                    height="40" />
+                <!-- INPUT COMENTARIO -->
+                <div class="form-outline w-100">
+                    <textarea class="form-control" id="texto" rows="4" style="background: #fff;"
+                        placeholder="Escriba un comentario..." name="texto"></textarea>
+                    <p id="texto-char" class=" text-secondary">0/250</p>
+                </div>
+            </div>
+            {{-- DATOS OCULTOS --}}
+            <input type="text" value="{{$proyecto->id}}" name="id_proy" hidden>
+            <input type="text" value="{{session()->get('usuario')->id}}" name="id_usu" hidden>
+
+            <div class="float-end mt-2 pt-1">
+                <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+            </div>
+            
+        </form>
+        <!-- TODO: MENSAJE -->
+        @foreach ($proyecto->comentarios as $com)
+        <div class="card-body">
+            <!-- INFO USUARIO -->
+            <div class="d-flex flex-start align-items-center">
+                <!-- IMG USUARIO -->
+                <img class="rounded-circle shadow-1-strong me-3" src="{{url("images/usuarios/" . $com->usuarios->img)}}"
+                    alt="avatar" width="60" height="60" />
+                <!-- DATOS COMENTARIO -->
+                <div>
+                    <h6 class="fw-bold text-primary mb-1">{{$com->usuarios->nombre}}</h6>
+                    <p class="text-muted small mb-0">
+                        Publicado - {{$com->created_at}}
+                    </p>
+                </div>
+            </div>
+            <!-- COMENTARIO TEXTO -->
+            <p class="mt-3 mb-4 pb-2">
+                {{$com->texto}}
+            </p>
+            <!-- OTROS -->
+            @if ($com->usuarios->id === session()->get('usuario')->id || session()->get('usuario')->admin)
+                <div class="small d-flex justify-content-start">
+                    <form action="{{ route('eliminarCom', $com->id) }}" method="POST" class="d-flex align-items-center me-3">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-link mb-0">Eliminar</button>
+                    </form>
+                </div>
+            @endif
+        </div>
+        @endforeach
+        <!-- TODO: FIN MENSAJE -->
+    </div>
+</section>
+@endisset
+
 
 <style>
     footer {
