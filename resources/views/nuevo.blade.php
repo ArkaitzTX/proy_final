@@ -4,7 +4,7 @@
 {{-- CONEXIONES --}}
 <link rel="stylesheet" href="{{asset('css/nuevo.css')}}">
 
-<main class="container my-3 d-flex flex-column align-items-start">
+<main class="container my-3 d-flex flex-column">
 
     <form action="{{ route('nuevoCrear') }}" method="post" enctype="multipart/form-data">
       @csrf
@@ -36,7 +36,7 @@
     <select name="tipo" id="tipo" class="form-select ">
     </select></div>
     {{-- PRINCIPAL --}}
-    <article id="principal" class="my-3 rounded"></article>
+    <article id="principal" class="my-3 w-100 rounded"></article>
     <label class="form-label" for="subir_principal">Subir archivo:</label>
     <input type="file" id="subir_principal" class="form-control mb-3 mb-5">
     <h3>Codigo adicional</h3>
@@ -46,12 +46,12 @@
     </div>
     <section id="vp">
         {{-- SECUNDARIO --}}
-        <article id="secundario" class="my-3 rounded"></article>
+        <article id="secundario" class="my-3 w-100 rounded"></article>
         <label class="form-label" for="subir_secundario">Subir archivo:</label>
         <input type="file" id="subir_secundario" class="form-control mb-5">
         {{-- VISTA --}}
         <h3>Vista previa</h3>
-        <iframe id="vista" class="my-3 rounded  " style="min-height: 300px;"></iframe>
+        <iframe id="vista" class="my-3 rounded w-100" style="min-height: 300px;"></iframe>
     </section>
 </section>
 {{-- ENVIAR --}}
