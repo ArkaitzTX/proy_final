@@ -17,14 +17,17 @@
 <section class="my-3">
     <label class="form-label ">Nombre: *</label>
     <input type="text" name="nombre" class="form-control validar mb-4">
+    <p class="text-danger" id="nombre_error"></p>
     <div class="d-flex justify-content-between">
         <div class="w-100" style="width: 95%; margin-right: 20px;">
             <label class="form-label">Descripción: *</label>
             <textarea cols="30" rows="10" name="descripcion" class="form-control validar mb-4"></textarea>
+            <p class="text-danger" id="descripcion_error"></p>
         </div>
         <div class="w-100" style="width: 95%; margin-left: 20px;">
             <label class="form-label">Explicación:</label>
-            <textarea cols="30" rows="10" name="como" class="form-control mb-4" "></textarea>
+            <textarea cols="30" rows="10" name="como" class="form-control mb-4"></textarea>
+            <p class="text-danger" id="como_error"></p>
         </div>
 
     </div>
