@@ -8,51 +8,57 @@
 
 
 
-<main class="container text-center my-5">
+<main class="container my-5">
 
+<div>
+    <section class="d-flex">
+        <article class="w-25">
+        <img class="rounded-circle mt-4" src="{{url('proyectos/images/' . $proyecto->img)}}" alt="img_perfil" width="200px"></article>
+        <article class="mx-5">
+            <div><h1 class="my-4 fw-bold">{{$proyecto->nombre}}</h1></div>
+            <div class="d-flex align-items-end">{{-- PERFIL USUARIO --}}
+            <img class="rounded-circle mx-3" src="{{url('images/usuarios/' . $proyecto->usuarios->img)}}" alt="img_perfil" width="60px">
+            <p>Por: {{$proyecto->usuarios->nombre}}</p></div>
+            <div><h5 class="my-3 mb-3"><strong class="text-primary">Descripcion: </strong> {{$proyecto->descripcion}}</h5></div>
+            <div class="my-3">   
+            <button id="descargar" class="btn btn-lg btn-primary">Descargar</button>
+            <button id="copiar" class="btn btn-lg btn-secondary mx-4 my-3">Compartir</button></div>
+        </article>
+    </section>
+    <section>       
+        <h5 class="mt-4 rounded p-4"><strong class="">Explicacion: </strong> {{$proyecto->como}}</h5>
+    </section>
+</div>
+
+    <div class="d-flex">
+    
+    <div class="d-flex flex-column text-center">
     {{-- DATOS --}}
     <input id="info" type="text" value="{{json_encode($proyecto)}}" hidden>
+    </div>
+    </div>
 
 
-    <h1 class="my-4 display-3 fw-bold ls-tight">{{$proyecto->nombre}}</h1>
-
-    <section>
-        {{-- PERFIL USUARIO --}}
-        <img src="{{url("images/usuarios/" . $proyecto->usuarios->img)}}" alt="img_perfil">
-        <p>{{$proyecto->usuarios->nombre}}</p>
-    </section>
-
-    <h3 class="my-3">{{$proyecto->descripcion}}</h3>
-
-    <section class="my-5">
-        <button id="descargar" class="btn btn-primary mx-4">Descargar</button>
-        <button id="copiar" class="btn btn-secondary mx-4">Compartir</button>
-    </section>
-
-    <section class="my-4">
-        <h4 class="fw-bold">{{$proyecto->como}}</h4>
-    </section>
-
-    <hr>
-
-    <section class="row mt-5">
+    <section class="row">
 
         {{-- CODIGO --}}
-        <article id="codigo" class="my-3">
+        <article id="codigo" class="my-1">
             {{-- PRINCIPAL --}}
-            <h1>Codigo principal</h1>
-            <article id="principal" class="my-3 rounded"></article>
-            <button id="c_1" class="copiar">Copiar</button>
-            <button id="d_1" class="descargar">Descargar</button>
+            <h1 class="mt-5 mb-3">Codigo principal</h1>
+            <article id="principal" class="my-3 rounded w-100 mt-4"></article>
+            <div>
+            <button id="c_1" class="copiar btn btn-primary">Copiar</button>
+            <button id="d_1" class="descargar btn btn-secondary">Descargar</button>
+            </div>
             <section id="vp">
                 {{-- SECUNDARIO --}}
-                <h1>Codigo secundario</h1>
-                <article id="secundario" class="my-3 rounded"></article>
-                <button id="c_2" class="copiar">Copiar</button>
-                <button id="d_2" class="descargar">Descargar</button>
+                <h1 class="mt-5 mb-3">Codigo secundario</h1>
+                <article id="secundario" class="my-3 rounded w-100"></article>
+                <button id="c_2" class="copiar btn btn-primary">Copiar</button>
+                <button id="d_2" class="descargar btn btn-secondary">Descargar</button>
                 {{-- VISTA --}}
-                <h1>Vista previa</h1>
-                <iframe id="vista" class="my-3" style="min-height: 300px;"></iframe>
+                <h1 class="mt-5 mb-3">Vista previa</h1>
+                <iframe id="vista" class="my-3 w-100 rounded" style="min-height: 300px;"></iframe>
             </section>
         </article>
 
@@ -63,7 +69,6 @@
     footer {
         display: none;
     }
-
 </style>
 
 {{-- ACE CODE --}}
