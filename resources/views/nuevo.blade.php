@@ -83,7 +83,7 @@
 </main>
 
 {{-- !BOTON INFO --}}
-<button id="info" class="btn btn-info">?</button>
+<button id="info" class="btn btn-primary rounded-circle">?</button>
 
 {{-- ACE CODE --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
