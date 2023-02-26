@@ -76,7 +76,7 @@
                 </tbody>
             </table>
         </div>
-        {{ $usuarios->links() }}
+        {{ $proyectos->links() }}
     </section>
 
 

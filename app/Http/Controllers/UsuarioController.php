@@ -118,7 +118,7 @@ class UsuarioController extends Controller
         //Delete
     public function adminDelete($id){
         $usuario = Usuarios::findOrFail($id);
-        $usuario->proyectos()->delete(); // Elimina los proyectos relacionados al usuario
+        $usuario->eliminarProyectosYComentarios(); // Elimina los proyectos relacionados al usuario
         $usuario->delete(); // Elimina al usuario
 
         //Eliminar img de perfil
@@ -126,7 +126,7 @@ class UsuarioController extends Controller
             unlink(public_path('/images/usuarios/') . $usuario->img);
         }
 
-        return redirect()->route('inicio');  
+        return back();   
     }
         //Permisos
     public function adminPermisos($id){

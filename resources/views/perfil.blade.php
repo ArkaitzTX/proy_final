@@ -32,6 +32,7 @@
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary block mb-3">Actualizar información
                             personal</button>
+                        <a class="btn btn-outline-primary block" href="{{ route('logout') }}" role="button">Cerrar sesion</a>
                         @if ($usuario->admin)
                             <a class="btn btn-outline-primary block" href="{{ route('admin') }}" role="button">Administracion</a>    
                         @endif
