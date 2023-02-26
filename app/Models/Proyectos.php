@@ -22,4 +22,10 @@ class Proyectos extends Model
     {
         return $this->hasMany(Comentarios::class, 'id_proy', 'id');
     }
+
+    public function eliminarProyecto()
+    {
+        $this->comentarios()->delete();
+        $this->delete();
+    }
 }

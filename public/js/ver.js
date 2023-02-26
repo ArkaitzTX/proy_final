@@ -206,7 +206,7 @@ window.onload = () => {
         });
     });
 
-    // COMENTARIOS
+    //TODO: COMENTARIOS
     const textoInput = document.getElementById("texto");
     const contadorCaracteres = document.getElementById("texto-char");
     
@@ -218,4 +218,5 @@ window.onload = () => {
             textoInput.value = textoInput.value.slice(0, 249);
         }
     });
+
 }

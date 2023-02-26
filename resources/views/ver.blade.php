@@ -14,11 +14,11 @@
 <div>
     <section class="d-flex">
         <article class="w-25">
-        <img class="rounded-circle mt-4" src="{{url('proyectos/images/' . $proyecto->img)}}" alt="img_perfil" width="200px"></article>
+        <img class="rounded mt-4" src="{{url('proyectos/images/' . $proyecto->img)}}" alt="img_perfil" style="width: 15vw; height: 13vw; object-fit: cover;"></article>
         <article class="mx-5">
             <div><h1 class="my-4 fw-bold">{{$proyecto->nombre}}</h1></div>
             <div class="d-flex align-items-end">{{-- PERFIL USUARIO --}}
-            <img class="rounded-circle mx-3" src="{{url('images/usuarios/' . $proyecto->usuarios->img)}}" alt="img_perfil" width="60px">
+            <img class="rounded-circle mx-3" src="{{url('images/usuarios/' . $proyecto->usuarios->img)}}" alt="img_perfil" style="width: 60px; height: 60px; object-fit: cover;">
             <p>Por: {{$proyecto->usuarios->nombre}}</p></div>
             <div><h5 class="my-3 mb-3"><strong class="text-primary">Descripcion: </strong> {{$proyecto->descripcion}}</h5></div>
             <div class="my-3">   
@@ -26,8 +26,10 @@
             <button id="copiar" class="btn btn-lg btn-secondary mx-4 my-3">Compartir</button></div>
         </article>
     </section>
-    <section>       
-        <h5 class="mt-4 rounded p-4"><strong class="">Explicacion: </strong> {{$proyecto->como}}</h5>
+    <section>
+        @if ($proyecto->como != null)
+            <h5 class="mt-4 rounded p-4"><strong class="">Explicacion: </strong> {{$proyecto->como}}</h5>
+        @endif       
     </section>
 </div>
 
@@ -51,16 +53,18 @@
             <button id="c_1" class="copiar btn btn-primary">Copiar</button>
             <button id="d_1" class="descargar btn btn-secondary">Descargar</button>
             </div>
-            <section id="vp">
-                {{-- SECUNDARIO --}}
-                <h1 class="mt-5 mb-3">Codigo secundario</h1>
-                <article id="secundario" class="my-3 rounded w-100"></article>
-                <button id="c_2" class="copiar btn btn-primary">Copiar</button>
-                <button id="d_2" class="descargar btn btn-secondary">Descargar</button>
-                {{-- VISTA --}}
-                <h1 class="mt-5 mb-3">Vista previa</h1>
-                <iframe id="vista" class="my-3 w-100 rounded" style="min-height: 300px;"></iframe>
-            </section>
+            @if ($proyecto->vista_prev)
+                <section id="vp">
+                    {{-- SECUNDARIO --}}
+                    <h1 class="mt-5 mb-3">Codigo secundario</h1>
+                    <article id="secundario" class="my-3 rounded w-100"></article>
+                    <button id="c_2" class="copiar btn btn-primary">Copiar</button>
+                    <button id="d_2" class="descargar btn btn-secondary">Descargar</button>
+                    {{-- VISTA --}}
+                    <h1 class="mt-5 mb-3">Vista previa</h1>
+                    <iframe id="vista" class="my-3 w-100 rounded" style="min-height: 300px;"></iframe>
+                </section>
+            @endif
         </article>
 
     </section>

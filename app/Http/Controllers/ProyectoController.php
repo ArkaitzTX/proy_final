@@ -109,7 +109,8 @@ class ProyectoController extends Controller
         }
 
         // Bd
-        $proyecto->delete();
+        $proyecto->eliminarProyecto();
+        // $proyecto->delete();
 
         // Actualizar session
         $usuario = Usuarios::findOrFail(session()->get('usuario')->id);
