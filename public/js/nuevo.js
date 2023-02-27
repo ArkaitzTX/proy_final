@@ -71,11 +71,22 @@ window.onload = () => {
     function verVista() {
         if (activo) {
             var vista = document.getElementById("vista");
-            let html = secundario.getValue() + tipoUsado.conexion[0] + principal.getValue() + tipoUsado.conexion[1];
+            let html = secundario.getValue() + '\n' + tipoUsado.conexion[0] + principal.getValue() + tipoUsado.conexion[1];
+            console.log(html);
 
-            vista.contentDocument.open();
-            vista.contentDocument.write(html);
-            vista.contentDocument.close();
+            // Elimina las variables previamente declaradas
+            console.clear();
+            vista.innerHTML = '';
+            delete window.textoInput;
+
+            try {
+                vista.contentDocument.open();
+                vista.contentDocument.write(html);
+                vista.contentDocument.close();
+            } catch (error) {
+                console.log("Escribiendo...");
+            }
+
         }
     }
 
@@ -154,6 +165,15 @@ window.onload = () => {
             des();
         }
 
+        // ERROR
+        console.log(miTipo.nombre == "javascript");
+        if (miTipo) {
+            document.getElementById("mensaje-error").style.display = "block";
+        }
+        else{
+            document.getElementById("mensaje-error").style.display = "none";
+        }
+
         //TIPO DE ARCHIVO
         principal.getSession().setMode(`ace/mode/${miTipo.nombre}`);
 
@@ -161,7 +181,7 @@ window.onload = () => {
 
     });
 
-    // SUBMIT
+    //TODO: SUBMIT
     document.getElementById('enviar').addEventListener("click", function (event) {
         event.preventDefault();
 
@@ -252,7 +272,7 @@ window.onload = () => {
 
         // TIPO
         selectTipo.value = info.tipo;
-        
+
         // CODIGO
         pasarData(principal, tipos[info.tipo - 1].nombre);
         pasarData(secundario, 'html');

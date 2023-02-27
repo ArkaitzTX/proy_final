@@ -156,7 +156,7 @@ window.onload = () => {
                 '<link rel="stylesheet" href="principal.css">',
                 '<script src="principal.js"></script>'
             ];
-            let contenido = LINK[datos.tipo - 1] + '\n' + secundario.getValue();
+            let contenido = secundario.getValue() + '\n' + LINK[datos.tipo - 1];
 
             let nombreArchivo = 'secundario.html';
             zip.file(nombreArchivo, contenido, {

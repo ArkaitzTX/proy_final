@@ -53,11 +53,14 @@
                 <select name="tipo" id="tipo" class="form-select">
                 </select>
             </div>
+
+            <p style="display: none" id="mensaje-error" class="text-danger">*La vista previa con archivos js puede dar fallos o funcionar incorrectamente. En caso de que este sea el caso desactiva la vista previa.*</p>
+
             {{-- PRINCIPAL --}}
             <article id="principal" class="my-3 w-100 rounded"></article>
             <label class="form-label" for="subir_principal">Subir archivo:</label>
             <input type="file" id="subir_principal" class="form-control mb-3 mb-5">
-            <h3>Codigo adicional</h3>
+            <h3>Codigo adicional[HTML]</h3>
             <div class="form-check mb-3">
                 <input type="checkbox" id="check_vp" name="vista_prev" class="form-check-input">
                 <label class="form-check-label" for="check_vp">Desactivar codigo adicional</label>

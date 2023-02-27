@@ -118,7 +118,7 @@ window.onload = () => {
                         '<link rel="stylesheet" href="principal.' + misTipos[proyecto.tipo - 1] + '">',
                         '<script src="principal.' + misTipos[proyecto.tipo - 1] + '"></script>'
                       ];
-                      let contenido = LINK[proyecto.tipo - 1] + '\n' + response.data;
+                      let contenido = response.data + '\n' + LINK[proyecto.tipo - 1];
                       zip.file('secundario.html', contenido);
               
                       // Descargar zip
