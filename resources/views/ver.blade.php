@@ -85,7 +85,7 @@
                     height="40" />
                 <!-- INPUT COMENTARIO -->
                 <div class="form-outline w-100">
-                    <textarea class="form-control" id="texto" rows="4" style="background: #fff;"
+                    <textarea required class="form-control" id="texto" rows="4" style="background: #fff;"
                         placeholder="Escriba un comentario..." name="texto"></textarea>
                     <p id="texto-char" class=" text-secondary">0/250</p>
                 </div>

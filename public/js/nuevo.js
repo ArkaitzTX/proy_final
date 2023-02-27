@@ -72,7 +72,6 @@ window.onload = () => {
         if (activo) {
             var vista = document.getElementById("vista");
             let html = secundario.getValue() + '\n' + tipoUsado.conexion[0] + principal.getValue() + tipoUsado.conexion[1];
-            console.log(html);
 
             // Elimina las variables previamente declaradas
             console.clear();
@@ -92,8 +91,8 @@ window.onload = () => {
 
 
     //TODO: SUBIR ARCHIVO
-    document.getElementById("subir_principal").addEventListener('change', subirArchivos);
-    document.getElementById("subir_secundario").addEventListener('change', subirArchivos);
+    document.getElementById("subir_principal").addEventListener('input', subirArchivos);
+    document.getElementById("subir_secundario").addEventListener('input', subirArchivos);
 
     function subirArchivos(event) {
         const file = event.target.files[0];
@@ -166,8 +165,7 @@ window.onload = () => {
         }
 
         // ERROR
-        console.log(miTipo.nombre == "javascript");
-        if (miTipo) {
+        if (miTipo.nombre == "javascript") {
             document.getElementById("mensaje-error").style.display = "block";
         }
         else{
