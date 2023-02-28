@@ -237,7 +237,7 @@ window.onload = () => {
                 <b>Explicación:</b> Proporcione toda la información necesaria para que otros usuarios puedan usar e implementar su proyecto de manera efectiva. Esta sección es opcional, pero puede ser útil para mejorar la comprensión del proyecto.<br>\
                 <b>Imagen:</b> Adjunte una imagen que muestre información relevante sobre su proyecto. Esto es opcional, pero puede ser útil para atraer la atención de otros usuarios.<br>\
                 <b>Código principal:</b> Escriba el código principal de su proyecto. Tenga en cuenta que solo debe incluir el código principal que quiera compartir.<br>\
-                <b>Vista previa: la vista previa puedes </b> .<br>\
+                <b>Vista previa:</b> la vista previa puedes desactivarla en caso que lo quieras.<br>\
                 <b>Código secundario:</b> Incluya cualquier otro código que sea necesario para que su proyecto funcione correctamente. Esta sección es opcional, pero puede ser útil para proporcionar ejemplos de cómo implementar el código principal. Tenga en cuenta que esta sección es de tipo HTML, por lo que puede agregar tanto HTML, CSS(style) como JS(script).<br><br>\
                 ',
             focusConfirm: false,

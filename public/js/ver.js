@@ -147,7 +147,8 @@ window.onload = () => {
         let zip = new JSZip();
 
         //1
-        let nombreArchivo = 'principal' + '.' + modo;
+        let nuevotipo1 = modo == "javascript" ? "js" : modo;
+        let nombreArchivo = 'principal' + '.' + nuevotipo1;
         zip.file(nombreArchivo, principal.getValue(), {
             binary: true
         });
@@ -180,13 +181,14 @@ window.onload = () => {
 
     DESCARGADOS.forEach(element => {
         element.addEventListener('click', function (event) {
+            let nuevotipo2 = modo == "javascript" ? "js" : modo;
             const key = event.target.id;
             const datos = {
                 "d_1": principal.getValue(),
                 "d_2": secundario.getValue(),
             }
             const nombre = {
-                "d_1": 'principal.' + modo,
+                "d_1": 'principal.' + nuevotipo2,
                 "d_2": 'secundario.html',
             }
 
