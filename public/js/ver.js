@@ -4,12 +4,12 @@ window.onload = () => {
     const tipos = [{
             nombre: 'css',
             vp: true,
-            conexion: ["<style>", "</style>"]
+            conexion: ["<style>\n", "\n</style>"]
         },
         {
             nombre: 'javascript',
             vp: true,
-            conexion: ["<script>", "</script>"]
+            conexion: ["<script>\n (function activar(){\n", "\n})();\n</script>"]
         },
         {
             nombre: 'json',
@@ -71,6 +71,8 @@ window.onload = () => {
 
     async function pasarData(codigo, tipo) {
         try {
+            tipo = tipo == "javascript" ? "js" : tipo;
+            // console.log('/proyectos/' + tipo + '/' + archivo + '.' + tipo);
             const response = await fetch('/proyectos/' + tipo + '/' + archivo + '.' + tipo);
             const valor = await response.text();
 
@@ -209,11 +211,11 @@ window.onload = () => {
     //TODO: COMENTARIOS
     const textoInput = document.getElementById("texto");
     const contadorCaracteres = document.getElementById("texto-char");
-    
+
     textoInput.addEventListener("input", function () {
         const longitudTexto = textoInput.value.length;
         contadorCaracteres.textContent = `${longitudTexto}/250`;
-    
+
         if (longitudTexto >= 249) {
             textoInput.value = textoInput.value.slice(0, 249);
         }

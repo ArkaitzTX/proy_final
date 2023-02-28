@@ -4,6 +4,9 @@
 {{-- CONEXIONES --}}
 <link rel="stylesheet" href="{{asset('css/ver.css')}}">
 {{-- JSZIP --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+{{-- ALERT --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {{-- VUE  --}}
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
