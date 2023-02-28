@@ -52,7 +52,7 @@ main{
 
             div{
                 height: 40vh;
-                h2{
+                h4{
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
@@ -63,7 +63,7 @@ main{
                     max-width: 100%; 
                     overflow: hidden; 
                     display: -webkit-box; 
-                    -webkit-line-clamp: 6; /* establece el número máximo de líneas */
+                    -webkit-line-clamp: 4; /* establece el número máximo de líneas */
                     -webkit-box-orient: vertical; 
                 }
             }

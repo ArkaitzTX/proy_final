@@ -38,7 +38,7 @@ window.onload = () => {
                     <div class="row g-0">
                         <div class="col-md-6 order-first order-md-last">
                             <div class="text-white p-4 p-md-5">
-                                <h2 class="fw-bold text-white mb-3">{{ proy.nombre }}</h2>
+                                <h4 class="fw-bold text-white mb-3">{{ proy.nombre }}</h4>
                                 <p class="mb-4">{{ proy.descripcion }}</p>
                                 <div class="my-3">
                                     <a class="btn btn-primary btn-lg me-2" role="button" :href="'view/'+proy.id">Ver</a>
