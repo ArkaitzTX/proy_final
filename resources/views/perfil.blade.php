@@ -32,6 +32,7 @@
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary block mb-3">Actualizar información
                             personal</button>
+                        <a class="btn btn-outline-primary block" href="{{ route('logout') }}" role="button">Cerrar sesion</a>
                         @if ($usuario->admin)
                             <a class="btn btn-outline-primary block" href="{{ route('admin') }}" role="button">Administracion</a>    
                         @endif
@@ -61,8 +62,10 @@
                                     <h2 class="fw-bold text-white mb-3">{{ $proyecto->nombre }}</h2>
                                     <p class="mb-4">{{ $proyecto->descripcion }}</p>
                                     <div class="my-3">
-                                        <a class="btn btn-primary btn-lg me-2" role="button" href="{{ route('ver', $proyecto->id) }}">Ver</a>
-                                        <a class="btn btn-danger btn-lg" role="button" href="{{ route('borrarProyecto', $proyecto->id) }}">Eliminar</a>
+                                        <a class="btn btn-primary btn-lg" role="button" href="{{ route('ver', $proyecto->id) }}">Ver</a>
+                                        <br><br>
+                                        <a class="btn btn-warning" href="{{ route('proyedit',  $proyecto->id)}}">Editar</a>
+                                        <a class="btn btn-danger" role="button" href="{{ route('borrarProyecto', $proyecto->id) }}">Eliminar</a>
                                     </div>
                                 </div>
                             </div>

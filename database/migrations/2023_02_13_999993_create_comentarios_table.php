@@ -17,9 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('texto', 250);
 
-            $table->unsignedBigInteger('id_padre');
-            $table->foreign('id_padre')->references('id')->on('comentarios'); 
-
             $table->unsignedBigInteger('id_usu');
             $table->foreign('id_usu')->references('id')->on('usuarios'); 
 

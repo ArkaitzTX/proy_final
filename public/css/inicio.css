@@ -19,15 +19,16 @@ main #proyectos #filtros {
   position: -webkit-sticky;
   position: sticky;
   z-index: 1;
-  top: 70px;
+  top: 92px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #2e3439;
+  border-bottom: 3px #0d6efd solid;
 }
 main #proyectos #filtros div {
-  margin-top: 4vh;
-  width: 60vw;
-  height: 10vh;
+  width: 100%;
+  height: 7vh;
   padding: 1vw;
 }
 main #proyectos #filtros div input {
@@ -43,13 +44,19 @@ main #proyectos #projects {
 main #proyectos #projects div {
   height: 40vh;
 }
+main #proyectos #projects div h4 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 25vw; /* ajustar según el ancho deseado */
+}
 main #proyectos #projects div p {
-  line-height: 1.5; /* establece la altura de línea del texto */
-  max-width: 100%; /* limita el ancho del párrafo al ancho disponible */
-  overflow: hidden; /* esconde cualquier texto que sobrepase el límite */
-  display: -webkit-box; /* establece el display de la caja para navegadores webkit */
-  -webkit-line-clamp: 6; /* establece el número máximo de líneas */
-  -webkit-box-orient: vertical; /* establece la orientación vertical de la caja */
+  line-height: 1.5;
+  max-width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* establece el número máximo de líneas */
+  -webkit-box-orient: vertical;
 }
 
 @media (max-width: 1344px) {

@@ -6,4 +6,19 @@ main #codigo iframe {
   height: 40vh;
   width: 80vw;
   border: 1px black solid;
+}
+
+#comentarios #contenedor {
+  min-width: 95vw !important;
+}
+#comentarios textarea {
+  resize: none;
+}
+#comentarios button {
+  width: 100px;
+  height: 40px;
+}
+
+.fp {
+  width: 50px;
 }/*# sourceMappingURL=ver.css.map */

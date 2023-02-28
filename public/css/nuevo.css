@@ -6,4 +6,16 @@ main #codigo iframe {
   height: 40vh;
   width: 80vw;
   border: 1px black solid;
+}
+
+#info {
+  height: 45px;
+  width: 45px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
 }/*# sourceMappingURL=nuevo.css.map */

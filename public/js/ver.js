@@ -4,12 +4,12 @@ window.onload = () => {
     const tipos = [{
             nombre: 'css',
             vp: true,
-            conexion: ["<style>", "</style>"]
+            conexion: ["<style>\n", "\n</style>"]
         },
         {
             nombre: 'javascript',
             vp: true,
-            conexion: ["<script>", "</script>"]
+            conexion: ["<script>\n (function activar(){\n", "\n})();\n</script>"]
         },
         {
             nombre: 'json',
@@ -71,6 +71,8 @@ window.onload = () => {
 
     async function pasarData(codigo, tipo) {
         try {
+            tipo = tipo == "javascript" ? "js" : tipo;
+            // console.log('/proyectos/' + tipo + '/' + archivo + '.' + tipo);
             const response = await fetch('/proyectos/' + tipo + '/' + archivo + '.' + tipo);
             const valor = await response.text();
 
@@ -99,7 +101,12 @@ window.onload = () => {
         // Copia el URL al portapapeles
         navigator.clipboard.writeText(link)
             .then(function () {
-                console.log('URL copiado al portapapeles!');
+                Swal.fire({
+                    icon: 'success',
+                    text: 'URL copiado al portapapeles!',
+                    timer: 1000,
+                    showConfirmButton: false
+                })
             })
             .catch(function (error) {
                 console.error('No se pudo copiar el URL al portapapeles: ', error);
@@ -119,7 +126,12 @@ window.onload = () => {
 
             navigator.clipboard.writeText(datos[key])
                 .then(function () {
-                    console.log('Codigo copiado al portapapeles!');
+                    Swal.fire({
+                        icon: 'success',
+                        text: 'Codigo copiado al portapapeles!',
+                        timer: 1000,
+                        showConfirmButton: false
+                    })
                 })
                 .catch(function (error) {
                     console.error('No se pudo copiar el codigo al portapapeles: ', error);
@@ -135,7 +147,8 @@ window.onload = () => {
         let zip = new JSZip();
 
         //1
-        let nombreArchivo = 'principal' + '.' + modo;
+        let nuevotipo1 = modo == "javascript" ? "js" : modo;
+        let nombreArchivo = 'principal' + '.' + nuevotipo1;
         zip.file(nombreArchivo, principal.getValue(), {
             binary: true
         });
@@ -146,7 +159,7 @@ window.onload = () => {
                 '<link rel="stylesheet" href="principal.css">',
                 '<script src="principal.js"></script>'
             ];
-            let contenido = LINK[datos.tipo - 1] + '\n' + secundario.getValue();
+            let contenido = secundario.getValue() + '\n' + LINK[datos.tipo - 1];
 
             let nombreArchivo = 'secundario.html';
             zip.file(nombreArchivo, contenido, {
@@ -168,13 +181,14 @@ window.onload = () => {
 
     DESCARGADOS.forEach(element => {
         element.addEventListener('click', function (event) {
+            let nuevotipo2 = modo == "javascript" ? "js" : modo;
             const key = event.target.id;
             const datos = {
                 "d_1": principal.getValue(),
                 "d_2": secundario.getValue(),
             }
             const nombre = {
-                "d_1": 'principal.'+modo,
+                "d_1": 'principal.' + nuevotipo2,
                 "d_2": 'secundario.html',
             }
 
@@ -191,13 +205,22 @@ window.onload = () => {
 
             // Limpia el objeto URL creado
             window.URL.revokeObjectURL(url);
-            
+
 
         });
     });
 
-    // !----
-    //TODO: Comentarios
-    // !----
+    //TODO: COMENTARIOS
+    const textoInput = document.getElementById("texto");
+    const contadorCaracteres = document.getElementById("texto-char");
+
+    textoInput.addEventListener("input", function () {
+        const longitudTexto = textoInput.value.length;
+        contadorCaracteres.textContent = `${longitudTexto}/250`;
+
+        if (longitudTexto >= 249) {
+            textoInput.value = textoInput.value.slice(0, 249);
+        }
+    });
 
 }

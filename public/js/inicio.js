@@ -14,9 +14,10 @@ window.onload = () => {
         },
         template: `
     <article id="filtros">
-        <div class="rounded d-flex align-items-center justify-content-around text-light bg-opacity-75 bg-dark">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="busqueda">
-            <select class="form-select w-25" aria-label="Default select example" v-model="fecha">
+    <div class="w-75 d-flex align-items-center">
+        <div class="d-flex align-items-center justify-content-around text-light">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar proyecto" aria-label="Search" v-model="busqueda">
+            <select class="form-select w-25 mx-4" aria-label="Default select example" v-model="fecha">
                 <option value="0">Mas Nuevos</option>
                 <option value="1">Mas Viejos</option>
             </select>
@@ -26,6 +27,7 @@ window.onload = () => {
                 <option value="2">js</option>
                 <option value="3">json</option>
             </select>
+            </div>
         </div>
     </article>
 
@@ -36,7 +38,7 @@ window.onload = () => {
                     <div class="row g-0">
                         <div class="col-md-6 order-first order-md-last">
                             <div class="text-white p-4 p-md-5">
-                                <h2 class="fw-bold text-white mb-3">{{ proy.nombre }}</h2>
+                                <h4 class="fw-bold text-white mb-3">{{ proy.nombre }}</h4>
                                 <p class="mb-4">{{ proy.descripcion }}</p>
                                 <div class="my-3">
                                     <a class="btn btn-primary btn-lg me-2" role="button" :href="'view/'+proy.id">Ver</a>
@@ -58,7 +60,6 @@ window.onload = () => {
         `,
         computed: {
             filtrar(){
-              console.log(this.misProyectos.data);
                 return this.misProyectos.data
                 .filter(proyecto => {
                     let tipoCondicion = true;
@@ -117,7 +118,7 @@ window.onload = () => {
                         '<link rel="stylesheet" href="principal.' + misTipos[proyecto.tipo - 1] + '">',
                         '<script src="principal.' + misTipos[proyecto.tipo - 1] + '"></script>'
                       ];
-                      let contenido = LINK[proyecto.tipo - 1] + '\n' + response.data;
+                      let contenido = response.data + '\n' + LINK[proyecto.tipo - 1];
                       zip.file('secundario.html', contenido);
               
                       // Descargar zip
