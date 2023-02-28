@@ -12,12 +12,12 @@ window.onload = () => {
     const tipos = [{
             nombre: 'css',
             vp: true,
-            conexion: ["<style>", "</style>"]
+            conexion: ["<style>\n", "\n</style>"]
         },
         {
             nombre: 'javascript',
             vp: true,
-            conexion: ["<script>", "</script>"]
+            conexion: ["<script>\n (function activar(){\n", "\n})();\n</script>"]
         },
         {
             nombre: 'json',
@@ -26,12 +26,7 @@ window.onload = () => {
         }
     ];
     let activo = true;
-    let tipoUsado = {
-        nombre: 'css',
-        vp: true,
-        conexion: ["<style>", "</style>"]
-    };
-
+    let tipoUsado = tipos[0];
 
     //TODO: EDITOR DE CODIGO
     ace.require('ace/ext/language_tools');
@@ -75,8 +70,7 @@ window.onload = () => {
 
             // Elimina las variables previamente declaradas
             console.clear();
-            vista.innerHTML = '';
-            delete window.textoInput;
+            // console.log(html);
 
             try {
                 vista.contentDocument.open();
@@ -95,6 +89,7 @@ window.onload = () => {
     document.getElementById("subir_secundario").addEventListener('input', subirArchivos);
 
     function subirArchivos(event) {
+        console.log("SI");
         const file = event.target.files[0];
         // LEER ARCHIVO
         const reader = new FileReader();

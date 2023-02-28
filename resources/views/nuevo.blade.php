@@ -54,7 +54,7 @@
                 </select>
             </div>
 
-            <p style="display: none" id="mensaje-error" class="text-danger">*La vista previa con archivos js puede dar fallos o funcionar incorrectamente. En caso de que este sea el caso desactiva la vista previa.*</p>
+            <p style="display: none;" id="mensaje-error" class="text-danger small">*La vista previa con archivos js puede dar fallos o funcionar incorrectamente. En caso de que este sea el caso desactiva la vista previa.*</p>
 
             {{-- PRINCIPAL --}}
             <article id="principal" class="my-3 w-100 rounded"></article>
