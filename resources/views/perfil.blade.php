@@ -21,8 +21,9 @@
 
                     <div class="mb-3">
                         <label for="" class="form-label">Contraseña</label>
-                        <input type="text" class="form-control" name="pass" id="" aria-describedby="helpId"
-                            placeholder="{{$usuario->pass}}">
+                        {{-- <input type="text" class="form-control" name="pass" id="" aria-describedby="helpId"
+                            placeholder="{{$usuario->pass}}"> --}}
+                        <input type="text" class="form-control" name="pass" id="" aria-describedby="helpId">
                     </div>
 
                     <div class="mb-4 d-grid gap-2">
