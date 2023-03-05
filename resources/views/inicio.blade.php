@@ -32,7 +32,11 @@
     {{-- Proyectos --}}
     <section id="proyectos">
         {{-- Filtros --}}
-        <filtros lang="{{session()->get('idioma')}}" pro="{{ json_encode($proyectos) }}"></filtros>
+        @if (session()->get('idioma') != null)
+            <filtros lang="{{session()->get('idioma')}}" pro="{{ json_encode($proyectos) }}"></filtros>
+        @else
+            <filtros lang="en" pro="{{ json_encode($proyectos) }}"></filtros>
+        @endif
     </section>
 </main>
 

@@ -5,7 +5,7 @@ window.onload = () => {
         props: ['pro', 'lang'],
         data() {
             return {
-                idiomas: this.lang,
+                idiomas: this.lang ?? "en",
                 misProyectos: JSON.parse(this.pro),
                 busqueda: "",
                 fecha: "0",
