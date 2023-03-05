@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
 
         // nuevos
         'usuarios' => \App\Http\Middleware\validarUsuario::class,
+        'idioma' => \App\Http\Middleware\idioma::class,
 
     ];
 }

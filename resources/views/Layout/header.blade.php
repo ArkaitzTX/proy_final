@@ -8,7 +8,7 @@
                     class="bi bi-bezier rounded-circle mx-2" width="50px" height="50px">
             </span>
             <span style="color: var(--bs-white);">
-                GlichCode
+                {{__("texto.t6")}}
             </span>
         </a>
         {{-- NAV --}}
@@ -16,14 +16,13 @@
             {{-- LINKS --}}
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"><a class="nav-link active" href="{{ route('proyectos') }}"
-                        style="color: var(--bs-white);">Proyectos</a></li>
+                        style="color: var(--bs-white);">{{__("texto.t7")}}</a></li>
                 <li class="nav-item"><a class="nav-link active" href="{{ route('nuevo') }}"
-                        style="color: var(--bs-white);">Nuevo</a></li>
+                        style="color: var(--bs-white);">{{__("texto.t8")}}</a></li>
                 @if (isset(session()->get('usuario')->id))
                 <li class="nav-item"><a class="nav-link active" href="{{ route('perfil', session()->get('usuario')->id)}}"
-                    style="color: var(--bs-white);">Perfil</a></li>
+                    style="color: var(--bs-white);">{{__("texto.t9")}}</a></li>
                 @endif
-                        
             </ul>
             {{-- SECCION --}}
             @if (isset(session()->get('usuario')->id))
@@ -32,7 +31,7 @@
                     {{-- <p class="text-light">{{session()->get('usuario')->nombre}}</p> --}}
                 </section>
             @else
-                <button onclick="location.href='{{ route('login') }}'" class="btn btn-primary" type="button">Iniciar sesion</button>
+                <button onclick="location.href='{{ route('login') }}'" class="btn btn-primary" type="button">{{__("texto.t12")}}</button>
             @endif
         </div>
     </div>

@@ -136,4 +136,10 @@ class UsuarioController extends Controller
 
         return back();  
     }
+
+    public function idioma(Request $request){
+        session(['idioma' =>  $request->idioma]);
+
+        return back();  
+    }
 }

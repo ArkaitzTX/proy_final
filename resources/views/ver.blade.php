@@ -22,16 +22,16 @@
             <div><h1 class="my-4 fw-bold">{{$proyecto->nombre}}</h1></div>
             <div class="d-flex align-items-end">{{-- PERFIL USUARIO --}}
             <img class="rounded-circle mx-3" src="{{url('images/usuarios/' . $proyecto->usuarios->img)}}" alt="img_perfil" style="width: 60px; height: 60px; object-fit: cover;">
-            <p>Por: {{$proyecto->usuarios->nombre}}</p></div>
-            <div><h5 class="my-3 mb-3"><strong class="text-primary">Descripcion: </strong> {{$proyecto->descripcion}}</h5></div>
+            <p>{{__("texto.t71")}} {{$proyecto->usuarios->nombre}}</p></div>
+            <div><h5 class="my-3 mb-3"><strong class="text-primary">{{__("texto.t61")}} </strong> {{$proyecto->descripcion}}</h5></div>
             <div class="my-3">   
-            <button id="descargar" class="btn btn-lg btn-primary">Descargar</button>
-            <button id="copiar" class="btn btn-lg btn-secondary mx-4 my-3">Compartir</button></div>
+            <button id="descargar" class="btn btn-lg btn-primary">{{__("texto.t62")}}</button>
+            <button id="copiar" class="btn btn-lg btn-secondary mx-4 my-3">{{__("texto.t63")}}</button></div>
         </article>
     </section>
     <section>
         @if ($proyecto->como != null)
-            <h5 class="mt-4 rounded p-4"><strong class="">Explicacion: </strong> {{$proyecto->como}}</h5>
+            <h5 class="mt-4 rounded p-4"><strong class="">{{__("texto.t64")}} </strong> {{$proyecto->como}}</h5>
         @endif       
     </section>
 </div>
@@ -50,21 +50,21 @@
         {{-- CODIGO --}}
         <article id="codigo" class="my-1">
             {{-- PRINCIPAL --}}
-            <h1 class="mt-5 mb-3">Codigo principal</h1>
+            <h1 class="mt-5 mb-3">{{__("texto.t65")}}</h1>
             <article id="principal" class="my-3 rounded w-100 mt-4"></article>
             <div>
-            <button id="c_1" class="copiar btn btn-primary">Copiar</button>
-            <button id="d_1" class="descargar btn btn-secondary">Descargar</button>
+            <button id="c_1" class="copiar btn btn-primary">{{__("texto.t69")}}</button>
+            <button id="d_1" class="descargar btn btn-secondary">{{__("texto.t70")}}</button>
             </div>
             @if ($proyecto->vista_prev)
                 <section id="vp">
                     {{-- SECUNDARIO --}}
-                    <h1 class="mt-5 mb-3">Codigo secundario</h1>
+                    <h1 class="mt-5 mb-3">{{__("texto.t72")}}</h1>
                     <article id="secundario" class="my-3 rounded w-100"></article>
-                    <button id="c_2" class="copiar btn btn-primary">Copiar</button>
-                    <button id="d_2" class="descargar btn btn-secondary">Descargar</button>
+                    <button id="c_2" class="copiar btn btn-primary">{{__("texto.t73")}}</button>
+                    <button id="d_2" class="descargar btn btn-secondary">{{__("texto.t74")}}</button>
                     {{-- VISTA --}}
-                    <h1 class="mt-5 mb-3">Vista previa</h1>
+                    <h1 class="mt-5 mb-3">{{__("texto.t75")}}</h1>
                     <iframe id="vista" class="my-3 w-100 rounded" style="min-height: 300px;"></iframe>
                 </section>
             @endif
@@ -89,7 +89,7 @@
                 <!-- INPUT COMENTARIO -->
                 <div class="form-outline w-100">
                     <textarea required class="form-control" id="texto" rows="4" style="background: #fff;"
-                        placeholder="Escriba un comentario..." name="texto"></textarea>
+                        placeholder="{{__("texto.t79")}}" name="texto"></textarea>
                     <p id="texto-char" class=" text-secondary">0/250</p>
                 </div>
             </div>
@@ -98,7 +98,7 @@
             <input type="text" value="{{session()->get('usuario')->id}}" name="id_usu" hidden>
 
             <div class="float-end mt-2 pt-1">
-                <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                <button type="submit" class="btn btn-primary btn-sm">{{__("texto.t76")}}</button>
             </div>
             
         </form>
@@ -114,7 +114,7 @@
                 <div>
                     <h6 class="fw-bold text-primary mb-1">{{$com->usuarios->nombre}}</h6>
                     <p class="text-muted small mb-0">
-                        Publicado - {{$com->created_at}}
+                        {{__("texto.t77")}} - {{$com->created_at}}
                     </p>
                 </div>
             </div>
@@ -128,7 +128,7 @@
                     <form action="{{ route('eliminarCom', $com->id) }}" method="POST" class="d-flex align-items-center me-3">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-link mb-0">Eliminar</button>
+                        <button type="submit" class="btn btn-link mb-0">{{__("texto.t78")}}</button>
                     </form>
                 </div>
             @endif

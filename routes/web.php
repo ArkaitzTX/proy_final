@@ -14,7 +14,8 @@ use App\Http\Controllers\UsuarioController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::group(['middleware' => 'idioma'], function(){
+	
 //INDEX
 Route::get('/', [ProyectoController::class, 'inicio'])->name('inicio');
 Route::get('/#proyectos', [ProyectoController::class, 'inicio'])->name('proyectos');
@@ -32,6 +33,9 @@ Route::post('/sign', [UsuarioController::class, 'sign'])->name('sign-a');
 
 //VER PROYECTO
 Route::get('/view/{id}', [ProyectoController::class, 'ver'])->name('ver');
+
+// IDIOMA
+Route::post('/idioma', [UsuarioController::class, 'idioma'])->name('idioma');
 
 
 Route::group(['middleware' => 'usuarios'], function(){
@@ -65,5 +69,7 @@ Route::group(['middleware' => 'usuarios'], function(){
     Route::post('/updatecoment', [ProyectoController::class, 'insertarCom'])->name('insertarCom');
     Route::delete('/deletecoment/{id}', [ProyectoController::class, 'eliminarCom'])->name('eliminarCom');
 });
+});
 
 
+?>
