@@ -9,7 +9,7 @@
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <h1 class="my-5 display-3 fw-bold ls-tight">
                         {{__("texto.t27")}} <br />
-                        <span class="text-primary">{{__("texto.t28")}}r</span>
+                        <span class="text-primary">{{__("texto.t28")}}</span>
                     </h1>
                     <p style="color: hsl(217, 10%, 50.8%)">
                         {{__("texto.t29")}}

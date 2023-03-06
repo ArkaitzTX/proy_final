@@ -6,6 +6,8 @@ main #codigo iframe {
   height: 60vh;
   width: 80vw;
   border: 1px black solid;
+  resize: vertical;
+  overflow: auto;
 }
 
 #comentarios #contenedor {

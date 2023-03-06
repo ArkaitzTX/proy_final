@@ -66,7 +66,7 @@
                                         <a class="btn btn-primary btn-lg" role="button"
                                             href="{{ route('ver', $proyecto->id) }}">{{__("texto.t44")}}</a>
                                         <br><br>
-                                        <a class="btn btn-warning"
+                                        <a class="btn btn-warning text-white"
                                             href="{{ route('proyedit',  $proyecto->id)}}">{{__("texto.t45")}}</a>
                                         <a class="btn btn-danger" role="button"
                                             href="{{ route('borrarProyecto', $proyecto->id) }}">{{__("texto.t46")}}</a>
